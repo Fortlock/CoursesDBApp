@@ -64,5 +64,18 @@ namespace Courses.DataModel
             }
             return newSubject;
         }
+
+        public static Student AddStudent(string name,int group,int schoolId)
+        {
+            return null;
+        }
+
+        public static List<School> GetSchools()
+        {
+            CoursesEntities db = new CoursesEntities();
+            List<School> res = db.Schools.ToList();
+            db.Dispose();
+            return res;
+        }
     }
 }

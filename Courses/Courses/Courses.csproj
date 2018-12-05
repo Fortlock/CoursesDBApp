@@ -86,7 +86,7 @@
     <Compile Include="DataModel\Student.cs">
       <DependentUpon>CoursesContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataModel\StudentsView.cs">
+    <Compile Include="DataModel\StudentView.cs">
       <DependentUpon>CoursesContext.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModel\Subject.cs">
@@ -164,6 +164,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Courses.DataModel.School.datasource" />
     <None Include="Properties\DataSources\Courses.DataModel.Student.datasource" />
+    <None Include="Properties\DataSources\Courses.DataModel.StudentView.datasource" />
     <None Include="Properties\DataSources\Courses.DataModel.Subject.datasource" />
     <None Include="Properties\DataSources\Courses.DataModel.Teacher.datasource" />
     <None Include="Properties\Settings.settings">

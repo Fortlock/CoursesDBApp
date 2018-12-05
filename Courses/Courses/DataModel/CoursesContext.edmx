@@ -77,10 +77,12 @@
             <PropertyRef Name="Name" />
             <PropertyRef Name="GroupN" />
             <PropertyRef Name="School" />
+            <PropertyRef Name="Id" />
           </Key>
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="GroupN" Type="int" Nullable="false" />
           <Property Name="School" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Courses_Subjects">
           <End Role="Subjects" Type="Self.Subjects" Multiplicity="1">
@@ -187,7 +189,8 @@
             <DefiningQuery>SELECT 
     [StudentsView].[Name] AS [Name], 
     [StudentsView].[GroupN] AS [GroupN], 
-    [StudentsView].[School] AS [School]
+    [StudentsView].[School] AS [School], 
+    [StudentsView].[Id] AS [Id]
     FROM [dbo].[StudentsView] AS [StudentsView]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_Courses_Subjects" Association="Self.FK_Courses_Subjects">
@@ -431,17 +434,19 @@
             <End Role="Schools" EntitySet="Schools" />
             <End Role="Students" EntitySet="Students" />
           </AssociationSet>
-          <EntitySet Name="StudentsViews" EntityType="CoursesModel.StudentsView" />
+          <EntitySet Name="StudentViews" EntityType="CoursesModel.StudentView" />
         </EntityContainer>
-        <EntityType Name="StudentsView">
+        <EntityType Name="StudentView">
           <Key>
             <PropertyRef Name="Name" />
             <PropertyRef Name="GroupN" />
             <PropertyRef Name="School" />
+            <PropertyRef Name="Id" />
           </Key>
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="GroupN" Type="Int32" Nullable="false" />
           <Property Name="School" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -522,9 +527,10 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="StudentsViews">
-            <EntityTypeMapping TypeName="CoursesModel.StudentsView">
+          <EntitySetMapping Name="StudentViews">
+            <EntityTypeMapping TypeName="CoursesModel.StudentView">
               <MappingFragment StoreEntitySet="StudentsView">
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="School" ColumnName="School" />
                 <ScalarProperty Name="GroupN" ColumnName="GroupN" />
                 <ScalarProperty Name="Name" ColumnName="Name" />

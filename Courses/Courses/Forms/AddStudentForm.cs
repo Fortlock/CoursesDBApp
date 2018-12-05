@@ -32,8 +32,21 @@ namespace Courses
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            CoursesRequests.AddSubject(nameBox.Text);
+            string name = nameBox.Text;
+            int group = 0;
+            if (int.TryParse(groupBox.Text,out group) && group>0 && group<=12)
+            {
+
+                CoursesRequests.AddSubject(nameBox.Text);
+            }
             Close();
+        }
+
+        private void AddStudentForm_Load(object sender, EventArgs e)
+        {
+            schoolBox.DisplayMember = "Name";
+            schoolBox.ValueMember = "Id";
+            schoolBox.DataSource = CoursesRequests.GetSchools();
         }
     }
 }

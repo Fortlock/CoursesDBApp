@@ -30,18 +30,9 @@ namespace Courses
             switch (name)
             {
                 case "TeachersPage": TeachersGridView.DataSource = db.Teachers.ToList();break;
-                case "SchoolsPage": SchoolsGridView.DataSource = db.Schools.ToList(); break;
+                case "SchoolsPage": SchoolsGridView.DataSource = CoursesRequests.GetSchools(); break;
                 case "SubjectsPage": SubjectsGridView.DataSource = db.Subjects.ToList(); break;
-                case "StudentsPage":
-                    {
-                        List<Student> lst= db.Students.ToList();
-                        foreach(Student st in lst)
-                        {
-                            st.School = db.Schools.Find(st.SchoolId);
-                        }
-                        StudentsGridView.DataSource = lst;
-                        break;
-                    }
+                case "StudentsPage": StudentsGridView.DataSource = db.StudentViews.ToList(); break;
                 default: break;
             }
             db.Dispose();

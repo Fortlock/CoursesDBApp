@@ -12,10 +12,11 @@ namespace Courses.DataModel
     using System;
     using System.Collections.Generic;
     
-    public partial class StudentsView
+    public partial class StudentView
     {
         public string Name { get; set; }
         public int GroupN { get; set; }
         public string School { get; set; }
+        public int Id { get; set; }
     }
 }
