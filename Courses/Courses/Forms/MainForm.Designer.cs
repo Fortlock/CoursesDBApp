@@ -33,41 +33,50 @@
             this.TeachersPage = new System.Windows.Forms.TabPage();
             this.CallNTeacherForm = new System.Windows.Forms.Button();
             this.TeachersGridView = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teacherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SchoolsPage = new System.Windows.Forms.TabPage();
             this.CallNSchoolForm = new System.Windows.Forms.Button();
             this.SchoolsGridView = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schoolBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SubjectsPage = new System.Windows.Forms.TabPage();
             this.CallNSubjectForm = new System.Windows.Forms.Button();
             this.SubjectsGridView = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.StudentsPage = new System.Windows.Forms.TabPage();
             this.CallNStudentForm = new System.Windows.Forms.Button();
             this.StudentsGridView = new System.Windows.Forms.DataGridView();
-            this.TopicsPage = new System.Windows.Forms.TabPage();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teacherBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.schoolBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.schoolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentViewBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.CoursesPage = new System.Windows.Forms.TabPage();
+            this.CallNCourseForm = new System.Windows.Forms.Button();
+            this.CoursesGridView = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.durationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coursesViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.studentViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.studentViewBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl.SuspendLayout();
             this.TeachersPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TeachersGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).BeginInit();
             this.SchoolsPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SchoolsGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schoolBindingSource)).BeginInit();
             this.SubjectsPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SubjectsGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).BeginInit();
             this.StudentsPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StudentsGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.schoolBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentViewBindingSource2)).BeginInit();
+            this.CoursesPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CoursesGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursesViewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentViewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentViewBindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -78,7 +87,7 @@
             this.tabControl.Controls.Add(this.SchoolsPage);
             this.tabControl.Controls.Add(this.SubjectsPage);
             this.tabControl.Controls.Add(this.StudentsPage);
-            this.tabControl.Controls.Add(this.TopicsPage);
+            this.tabControl.Controls.Add(this.CoursesPage);
             this.tabControl.Location = new System.Drawing.Point(13, 13);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -125,6 +134,18 @@
             this.TeachersGridView.Size = new System.Drawing.Size(767, 367);
             this.TeachersGridView.TabIndex = 0;
             // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // teacherBindingSource
+            // 
+            this.teacherBindingSource.DataSource = typeof(Courses.DataModel.Teacher);
+            // 
             // SchoolsPage
             // 
             this.SchoolsPage.Controls.Add(this.CallNSchoolForm);
@@ -164,6 +185,18 @@
             this.SchoolsGridView.Size = new System.Drawing.Size(767, 367);
             this.SchoolsGridView.TabIndex = 0;
             // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // schoolBindingSource
+            // 
+            this.schoolBindingSource.DataSource = typeof(Courses.DataModel.School);
+            // 
             // SubjectsPage
             // 
             this.SubjectsPage.Controls.Add(this.CallNSubjectForm);
@@ -201,6 +234,18 @@
             this.SubjectsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.SubjectsGridView.Size = new System.Drawing.Size(767, 367);
             this.SubjectsGridView.TabIndex = 0;
+            // 
+            // nameDataGridViewTextBoxColumn2
+            // 
+            this.nameDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
+            this.nameDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // subjectBindingSource
+            // 
+            this.subjectBindingSource.DataSource = typeof(Courses.DataModel.Subject);
             // 
             // StudentsPage
             // 
@@ -242,51 +287,6 @@
             this.StudentsGridView.Size = new System.Drawing.Size(767, 367);
             this.StudentsGridView.TabIndex = 0;
             // 
-            // TopicsPage
-            // 
-            this.TopicsPage.Location = new System.Drawing.Point(4, 22);
-            this.TopicsPage.Name = "TopicsPage";
-            this.TopicsPage.Size = new System.Drawing.Size(767, 399);
-            this.TopicsPage.TabIndex = 4;
-            this.TopicsPage.Text = "Topics";
-            this.TopicsPage.UseVisualStyleBackColor = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // teacherBindingSource
-            // 
-            this.teacherBindingSource.DataSource = typeof(Courses.DataModel.Teacher);
-            // 
-            // nameDataGridViewTextBoxColumn1
-            // 
-            this.nameDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn1.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
-            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // schoolBindingSource
-            // 
-            this.schoolBindingSource.DataSource = typeof(Courses.DataModel.School);
-            // 
-            // nameDataGridViewTextBoxColumn2
-            // 
-            this.nameDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
-            this.nameDataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // subjectBindingSource
-            // 
-            this.subjectBindingSource.DataSource = typeof(Courses.DataModel.Subject);
-            // 
             // nameDataGridViewTextBoxColumn3
             // 
             this.nameDataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -315,6 +315,74 @@
             // 
             this.studentViewBindingSource2.DataSource = typeof(Courses.DataModel.StudentView);
             // 
+            // CoursesPage
+            // 
+            this.CoursesPage.Controls.Add(this.CallNCourseForm);
+            this.CoursesPage.Controls.Add(this.CoursesGridView);
+            this.CoursesPage.Location = new System.Drawing.Point(4, 22);
+            this.CoursesPage.Name = "CoursesPage";
+            this.CoursesPage.Size = new System.Drawing.Size(767, 399);
+            this.CoursesPage.TabIndex = 4;
+            this.CoursesPage.Text = "Courses";
+            this.CoursesPage.UseVisualStyleBackColor = true;
+            // 
+            // CallNCourseForm
+            // 
+            this.CallNCourseForm.Location = new System.Drawing.Point(4, 373);
+            this.CallNCourseForm.Name = "CallNCourseForm";
+            this.CallNCourseForm.Size = new System.Drawing.Size(136, 23);
+            this.CallNCourseForm.TabIndex = 1;
+            this.CallNCourseForm.Text = "New course";
+            this.CallNCourseForm.UseVisualStyleBackColor = true;
+            this.CallNCourseForm.Click += new System.EventHandler(this.CallAddForm_Click);
+            // 
+            // CoursesGridView
+            // 
+            this.CoursesGridView.AllowUserToAddRows = false;
+            this.CoursesGridView.AllowUserToDeleteRows = false;
+            this.CoursesGridView.AutoGenerateColumns = false;
+            this.CoursesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CoursesGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn4,
+            this.durationDataGridViewTextBoxColumn,
+            this.costDataGridViewTextBoxColumn});
+            this.CoursesGridView.DataSource = this.coursesViewBindingSource;
+            this.CoursesGridView.Location = new System.Drawing.Point(0, 0);
+            this.CoursesGridView.MultiSelect = false;
+            this.CoursesGridView.Name = "CoursesGridView";
+            this.CoursesGridView.ReadOnly = true;
+            this.CoursesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.CoursesGridView.Size = new System.Drawing.Size(767, 367);
+            this.CoursesGridView.TabIndex = 0;
+            // 
+            // nameDataGridViewTextBoxColumn4
+            // 
+            this.nameDataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn4.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn4.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn4.Name = "nameDataGridViewTextBoxColumn4";
+            this.nameDataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // durationDataGridViewTextBoxColumn
+            // 
+            this.durationDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.durationDataGridViewTextBoxColumn.DataPropertyName = "Duration";
+            this.durationDataGridViewTextBoxColumn.HeaderText = "Duration";
+            this.durationDataGridViewTextBoxColumn.Name = "durationDataGridViewTextBoxColumn";
+            this.durationDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // costDataGridViewTextBoxColumn
+            // 
+            this.costDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.costDataGridViewTextBoxColumn.DataPropertyName = "Cost";
+            this.costDataGridViewTextBoxColumn.HeaderText = "Cost";
+            this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
+            this.costDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // coursesViewBindingSource
+            // 
+            this.coursesViewBindingSource.DataSource = typeof(Courses.DataModel.CourseView);
+            // 
             // studentViewBindingSource
             // 
             this.studentViewBindingSource.DataSource = typeof(Courses.DataModel.StudentView);
@@ -336,16 +404,19 @@
             this.tabControl.ResumeLayout(false);
             this.TeachersPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TeachersGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).EndInit();
             this.SchoolsPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SchoolsGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schoolBindingSource)).EndInit();
             this.SubjectsPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SubjectsGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).EndInit();
             this.StudentsPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.StudentsGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.schoolBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentViewBindingSource2)).EndInit();
+            this.CoursesPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CoursesGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursesViewBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentViewBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentViewBindingSource1)).EndInit();
             this.ResumeLayout(false);
@@ -373,13 +444,19 @@
         private System.Windows.Forms.TabPage StudentsPage;
         private System.Windows.Forms.DataGridView StudentsGridView;
         private System.Windows.Forms.Button CallNStudentForm;
-        private System.Windows.Forms.TabPage TopicsPage;
+        private System.Windows.Forms.TabPage CoursesPage;
         private System.Windows.Forms.BindingSource studentViewBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn groupNDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn schoolDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource studentViewBindingSource2;
         private System.Windows.Forms.BindingSource studentViewBindingSource1;
+        private System.Windows.Forms.Button CallNCourseForm;
+        private System.Windows.Forms.DataGridView CoursesGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn durationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource coursesViewBindingSource;
     }
 }
 

@@ -88,6 +88,27 @@ namespace Courses.DataModel
             return newStudent;
         }
 
+        public static Course AddCourse(int subjectId, int duration, decimal cost)
+        {
+            CoursesEntities db = new CoursesEntities();
+            Course newCourse = new Course();
+            newCourse.SubjectId = subjectId;
+            newCourse.Duration = duration;
+            newCourse.Cost = cost;
+            db.Courses.Add(newCourse);
+            try
+            {
+                db.SaveChanges();
+                db.Dispose();
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException)
+            {
+                db.Dispose();
+                return null;
+            }
+            return newCourse;
+        }
+
         //get from db
 
         public static List<Teacher> GetTeachers()
@@ -118,6 +139,14 @@ namespace Courses.DataModel
         {
             CoursesEntities db = new CoursesEntities();
             List<StudentView> res = db.StudentViews.ToList();
+            db.Dispose();
+            return res;
+        }
+
+        public static List<CourseView> GetCourseViews()
+        {
+            CoursesEntities db = new CoursesEntities();
+            List<CourseView> res = db.CourseViews.ToList();
             db.Dispose();
             return res;
         }

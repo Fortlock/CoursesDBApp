@@ -457,7 +457,7 @@
             <End Role="Students" EntitySet="Students" />
           </AssociationSet>
           <EntitySet Name="StudentViews" EntityType="CoursesModel.StudentView" />
-          <EntitySet Name="CoursesViews" EntityType="CoursesModel.CoursesView" />
+          <EntitySet Name="CourseViews" EntityType="CoursesModel.CourseView" />
         </EntityContainer>
         <EntityType Name="StudentView">
           <Key>
@@ -471,7 +471,7 @@
           <Property Name="School" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Id" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="CoursesView">
+        <EntityType Name="CourseView">
           <Key>
             <PropertyRef Name="Id" />
             <PropertyRef Name="Duration" />
@@ -572,8 +572,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CoursesViews">
-            <EntityTypeMapping TypeName="CoursesModel.CoursesView">
+          <EntitySetMapping Name="CourseViews">
+            <EntityTypeMapping TypeName="CoursesModel.CourseView">
               <MappingFragment StoreEntitySet="CoursesView">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Cost" ColumnName="Cost" />

@@ -32,6 +32,7 @@ namespace Courses
                 case "SchoolsPage": SchoolsGridView.DataSource = CoursesRequests.GetSchools(); break;
                 case "SubjectsPage": SubjectsGridView.DataSource = CoursesRequests.GetSubjects(); break;
                 case "StudentsPage": StudentsGridView.DataSource = CoursesRequests.GetStudentViews(); break;
+                case "CoursesPage": CoursesGridView.DataSource = CoursesRequests.GetCourseViews(); break;
                 default: break;
             }
         }
@@ -63,6 +64,12 @@ namespace Courses
                     {
                         AddStudentForm addStudentForm = new AddStudentForm(this);
                         addStudentForm.Show();
+                        break;
+                    }
+                case "CallNCourseForm":
+                    {
+                        AddCourseForm addCourseForm = new AddCourseForm(this);
+                        addCourseForm.Show();
                         break;
                     }
             }

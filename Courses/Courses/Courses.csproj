@@ -77,10 +77,10 @@
     <Compile Include="DataModel\CourseStudent.cs">
       <DependentUpon>CoursesContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataModel\CoursesView.cs">
+    <Compile Include="DataModel\CourseTeacher.cs">
       <DependentUpon>CoursesContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataModel\CourseTeacher.cs">
+    <Compile Include="DataModel\CourseView.cs">
       <DependentUpon>CoursesContext.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModel\School.cs">
@@ -100,6 +100,12 @@
     </Compile>
     <Compile Include="DataModel\Topic.cs">
       <DependentUpon>CoursesContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddCourseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddCourseForm.Designer.cs">
+      <DependentUpon>AddCourseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddStudentForm.cs">
       <SubType>Form</SubType>
@@ -133,6 +139,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AddCourseForm.resx">
+      <DependentUpon>AddCourseForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddStudentForm.resx">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +174,7 @@
       <DependentUpon>CoursesContext.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Courses.DataModel.CoursesView1.datasource" />
     <None Include="Properties\DataSources\Courses.DataModel.School.datasource" />
     <None Include="Properties\DataSources\Courses.DataModel.Student.datasource" />
     <None Include="Properties\DataSources\Courses.DataModel.StudentView.datasource" />
@@ -181,7 +191,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="DataModel\CoursesContext.Context.tt">
