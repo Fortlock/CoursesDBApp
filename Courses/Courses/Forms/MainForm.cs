@@ -26,16 +26,14 @@ namespace Courses
 
         private void RefreshTab(string name)
         {
-            CoursesEntities db = new CoursesEntities();
             switch (name)
             {
-                case "TeachersPage": TeachersGridView.DataSource = db.Teachers.ToList();break;
+                case "TeachersPage": TeachersGridView.DataSource = CoursesRequests.GetTeachers(); break;
                 case "SchoolsPage": SchoolsGridView.DataSource = CoursesRequests.GetSchools(); break;
-                case "SubjectsPage": SubjectsGridView.DataSource = db.Subjects.ToList(); break;
-                case "StudentsPage": StudentsGridView.DataSource = db.StudentViews.ToList(); break;
+                case "SubjectsPage": SubjectsGridView.DataSource = CoursesRequests.GetSubjects(); break;
+                case "StudentsPage": StudentsGridView.DataSource = CoursesRequests.GetStudentViews(); break;
                 default: break;
             }
-            db.Dispose();
         }
 
         private void CallAddForm_Click(object sender, EventArgs e)

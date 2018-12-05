@@ -36,8 +36,11 @@ namespace Courses
             int group = 0;
             if (int.TryParse(groupBox.Text,out group) && group>0 && group<=12)
             {
-
-                CoursesRequests.AddSubject(nameBox.Text);
+                try
+                {
+                    CoursesRequests.AddStudent(nameBox.Text, group, (int)schoolBox.SelectedValue);
+                }
+                catch (Exception){}
             }
             Close();
         }

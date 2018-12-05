@@ -8,6 +8,8 @@ namespace Courses.DataModel
 {
     static class CoursesRequests
     {
+        //add to db
+
         public static Teacher AddTeacher(string name)
         {
             CoursesEntities db = new CoursesEntities();
@@ -67,13 +69,55 @@ namespace Courses.DataModel
 
         public static Student AddStudent(string name,int group,int schoolId)
         {
-            return null;
+            CoursesEntities db = new CoursesEntities();
+            Student newStudent = new Student();
+            newStudent.Name = name;
+            newStudent.GroupN = group;
+            newStudent.SchoolId = schoolId;
+            db.Students.Add(newStudent);
+            try
+            {
+                db.SaveChanges();
+                db.Dispose();
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException)
+            {
+                db.Dispose();
+                return null;
+            }
+            return newStudent;
+        }
+
+        //get from db
+
+        public static List<Teacher> GetTeachers()
+        {
+            CoursesEntities db = new CoursesEntities();
+            List<Teacher> res = db.Teachers.ToList();
+            db.Dispose();
+            return res;
         }
 
         public static List<School> GetSchools()
         {
             CoursesEntities db = new CoursesEntities();
             List<School> res = db.Schools.ToList();
+            db.Dispose();
+            return res;
+        }
+
+        public static List<Subject> GetSubjects()
+        {
+            CoursesEntities db = new CoursesEntities();
+            List<Subject> res = db.Subjects.ToList();
+            db.Dispose();
+            return res;
+        }
+
+        public static List<StudentView> GetStudentViews()
+        {
+            CoursesEntities db = new CoursesEntities();
+            List<StudentView> res = db.StudentViews.ToList();
             db.Dispose();
             return res;
         }
