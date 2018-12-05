@@ -21,6 +21,7 @@
         <AssociationConnector Association="CoursesModel.FK_CoursesTeachers_Teachers" ManuallyRouted="false" />
         <AssociationConnector Association="CoursesModel.FK_Students_Schools" ManuallyRouted="false" />
         <EntityTypeShape EntityType="CoursesModel.StudentView" Width="1.5" PointX="1" PointY="7.875" />
+        <EntityTypeShape EntityType="CoursesModel.CoursesView" Width="1.5" PointX="3.25" PointY="8" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

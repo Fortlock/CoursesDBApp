@@ -12,13 +12,13 @@ namespace Courses.DataModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Course
+    public partial class Cours
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Course()
+        public Cours()
         {
-            this.CoursesStudents = new HashSet<CourseStudent>();
-            this.CoursesTeachers = new HashSet<CourseTeacher>();
+            this.CoursesStudents = new HashSet<CoursesStudent>();
+            this.CoursesTeachers = new HashSet<CoursesTeacher>();
             this.Topics = new HashSet<Topic>();
         }
     
@@ -29,9 +29,9 @@ namespace Courses.DataModel
     
         public virtual Subject Subject { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CourseStudent> CoursesStudents { get; set; }
+        public virtual ICollection<CoursesStudent> CoursesStudents { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CourseTeacher> CoursesTeachers { get; set; }
+        public virtual ICollection<CoursesTeacher> CoursesTeachers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Topic> Topics { get; set; }
     }

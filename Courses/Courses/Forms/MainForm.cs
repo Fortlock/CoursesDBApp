@@ -69,10 +69,7 @@ namespace Courses
             Enabled = false;
         }
 
-        private void tabControl_Selecting(object sender, TabControlCancelEventArgs e)
-        {
-            RefreshTab(tabControl.SelectedTab.Name);
-        }
+        private void tabControl_Selecting(object sender, TabControlCancelEventArgs e) => RefreshTab(tabControl.SelectedTab.Name);
 
         private void MainForm_EnabledChanged(object sender, EventArgs e)
         {

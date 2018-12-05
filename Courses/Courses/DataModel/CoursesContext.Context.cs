@@ -34,5 +34,6 @@ namespace Courses.DataModel
         public virtual DbSet<Teacher> Teachers { get; set; }
         public virtual DbSet<Topic> Topics { get; set; }
         public virtual DbSet<StudentView> StudentViews { get; set; }
+        public virtual DbSet<CoursesView> CoursesViews { get; set; }
     }
 }

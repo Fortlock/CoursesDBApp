@@ -77,6 +77,9 @@
     <Compile Include="DataModel\CourseStudent.cs">
       <DependentUpon>CoursesContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataModel\CoursesView.cs">
+      <DependentUpon>CoursesContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataModel\CourseTeacher.cs">
       <DependentUpon>CoursesContext.tt</DependentUpon>
     </Compile>

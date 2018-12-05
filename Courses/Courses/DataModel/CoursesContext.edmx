@@ -10,7 +10,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Duration" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Duration" Type="int" Nullable="false" />
           <Property Name="Cost" Type="money" Nullable="false" />
           <Property Name="SubjectId" Type="int" Nullable="false" />
         </EntityType>
@@ -68,6 +68,20 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CourseId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Courses.dbo.CoursesView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="CoursesView">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Duration" />
+            <PropertyRef Name="Cost" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Duration" Type="int" Nullable="false" />
+          <Property Name="Cost" Type="money" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
@@ -185,6 +199,14 @@
           <EntitySet Name="Subjects" EntityType="Self.Subjects" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Topics" EntityType="Self.Topics" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CoursesView" EntityType="Self.CoursesView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CoursesView].[Id] AS [Id], 
+    [CoursesView].[Duration] AS [Duration], 
+    [CoursesView].[Cost] AS [Cost], 
+    [CoursesView].[Name] AS [Name]
+    FROM [dbo].[CoursesView] AS [CoursesView]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="StudentsView" EntityType="Self.StudentsView" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [StudentsView].[Name] AS [Name], 
@@ -231,7 +253,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Duration" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Duration" Type="Int32" Nullable="false" />
           <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="SubjectId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Subject" Relationship="Self.FK_Courses_Subjects" FromRole="Courses" ToRole="Subjects" />
@@ -435,6 +457,7 @@
             <End Role="Students" EntitySet="Students" />
           </AssociationSet>
           <EntitySet Name="StudentViews" EntityType="CoursesModel.StudentView" />
+          <EntitySet Name="CoursesViews" EntityType="CoursesModel.CoursesView" />
         </EntityContainer>
         <EntityType Name="StudentView">
           <Key>
@@ -447,6 +470,18 @@
           <Property Name="GroupN" Type="Int32" Nullable="false" />
           <Property Name="School" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CoursesView">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Duration" />
+            <PropertyRef Name="Cost" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Duration" Type="Int32" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -534,6 +569,16 @@
                 <ScalarProperty Name="School" ColumnName="School" />
                 <ScalarProperty Name="GroupN" ColumnName="GroupN" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CoursesViews">
+            <EntityTypeMapping TypeName="CoursesModel.CoursesView">
+              <MappingFragment StoreEntitySet="CoursesView">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
