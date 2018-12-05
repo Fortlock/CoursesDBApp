@@ -11,10 +11,10 @@ using Courses.DataModel;
 
 namespace Courses
 {
-    public partial class AddSubjectForm : Form
+    public partial class AddStudentForm : Form
     {
         Form parentForm = null;
-        public AddSubjectForm(Form pparentForm)
+        public AddStudentForm(Form pparentForm)
         {
             InitializeComponent();
             parentForm = pparentForm;

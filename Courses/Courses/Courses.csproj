@@ -86,6 +86,9 @@
     <Compile Include="DataModel\Student.cs">
       <DependentUpon>CoursesContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataModel\StudentsView.cs">
+      <DependentUpon>CoursesContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataModel\Subject.cs">
       <DependentUpon>CoursesContext.tt</DependentUpon>
     </Compile>
@@ -94,6 +97,12 @@
     </Compile>
     <Compile Include="DataModel\Topic.cs">
       <DependentUpon>CoursesContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddStudentForm.Designer.cs">
+      <DependentUpon>AddStudentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddSubjectForm.cs">
       <SubType>Form</SubType>
@@ -121,6 +130,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AddStudentForm.resx">
+      <DependentUpon>AddStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddSubjectForm.resx">
       <DependentUpon>AddSubjectForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +163,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Courses.DataModel.School.datasource" />
+    <None Include="Properties\DataSources\Courses.DataModel.Student.datasource" />
     <None Include="Properties\DataSources\Courses.DataModel.Subject.datasource" />
     <None Include="Properties\DataSources\Courses.DataModel.Teacher.datasource" />
     <None Include="Properties\Settings.settings">

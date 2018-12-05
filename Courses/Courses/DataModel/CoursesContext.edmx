@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище CoursesModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище CoursesModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Courses">
           <Key>
             <PropertyRef Name="Id" />
@@ -69,6 +69,18 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CourseId" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Courses.dbo.StudentsView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="StudentsView">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="GroupN" />
+            <PropertyRef Name="School" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="GroupN" Type="int" Nullable="false" />
+          <Property Name="School" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <Association Name="FK_Courses_Subjects">
           <End Role="Subjects" Type="Self.Subjects" Multiplicity="1">
@@ -171,6 +183,13 @@
           <EntitySet Name="Subjects" EntityType="Self.Subjects" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Topics" EntityType="Self.Topics" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentsView" EntityType="Self.StudentsView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [StudentsView].[Name] AS [Name], 
+    [StudentsView].[GroupN] AS [GroupN], 
+    [StudentsView].[School] AS [School]
+    FROM [dbo].[StudentsView] AS [StudentsView]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Courses_Subjects" Association="Self.FK_Courses_Subjects">
             <End Role="Subjects" EntitySet="Subjects" />
             <End Role="Courses" EntitySet="Courses" />
@@ -200,8 +219,7 @@
             <End Role="Topics" EntitySet="Topics" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CoursesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -413,7 +431,18 @@
             <End Role="Schools" EntitySet="Schools" />
             <End Role="Students" EntitySet="Students" />
           </AssociationSet>
+          <EntitySet Name="StudentsViews" EntityType="CoursesModel.StudentsView" />
         </EntityContainer>
+        <EntityType Name="StudentsView">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="GroupN" />
+            <PropertyRef Name="School" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GroupN" Type="Int32" Nullable="false" />
+          <Property Name="School" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -489,6 +518,15 @@
               <MappingFragment StoreEntitySet="Topics">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentsViews">
+            <EntityTypeMapping TypeName="CoursesModel.StudentsView">
+              <MappingFragment StoreEntitySet="StudentsView">
+                <ScalarProperty Name="School" ColumnName="School" />
+                <ScalarProperty Name="GroupN" ColumnName="GroupN" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -32,7 +32,7 @@ namespace Courses
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            CoursesRequests.AddSubject(nameBox.Text);
+            CoursesRequests.AddSchool(nameBox.Text);
             Close();
         }
     }

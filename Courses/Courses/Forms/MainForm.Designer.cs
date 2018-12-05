@@ -36,25 +36,35 @@
             this.SchoolsPage = new System.Windows.Forms.TabPage();
             this.CallNSchoolForm = new System.Windows.Forms.Button();
             this.SchoolsGridView = new System.Windows.Forms.DataGridView();
+            this.SubjectsPage = new System.Windows.Forms.TabPage();
+            this.SubjectsGridView = new System.Windows.Forms.DataGridView();
+            this.CallNSubjectForm = new System.Windows.Forms.Button();
+            this.StudentsPage = new System.Windows.Forms.TabPage();
+            this.StudentsGridView = new System.Windows.Forms.DataGridView();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teacherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.schoolBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.SubjectsPage = new System.Windows.Forms.TabPage();
-            this.SubjectsGridView = new System.Windows.Forms.DataGridView();
-            this.subjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CallNSubjectForm = new System.Windows.Forms.Button();
+            this.subjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schoolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.CallNStudentForm = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.TeachersPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TeachersGridView)).BeginInit();
             this.SchoolsPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SchoolsGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.schoolBindingSource)).BeginInit();
             this.SubjectsPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SubjectsGridView)).BeginInit();
+            this.StudentsPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.StudentsGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schoolBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -62,6 +72,7 @@
             this.tabControl.Controls.Add(this.TeachersPage);
             this.tabControl.Controls.Add(this.SchoolsPage);
             this.tabControl.Controls.Add(this.SubjectsPage);
+            this.tabControl.Controls.Add(this.StudentsPage);
             this.tabControl.Location = new System.Drawing.Point(13, 13);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -93,6 +104,7 @@
             // 
             // TeachersGridView
             // 
+            this.TeachersGridView.AllowUserToAddRows = false;
             this.TeachersGridView.AutoGenerateColumns = false;
             this.TeachersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TeachersGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -127,6 +139,7 @@
             // 
             // SchoolsGridView
             // 
+            this.SchoolsGridView.AllowUserToAddRows = false;
             this.SchoolsGridView.AutoGenerateColumns = false;
             this.SchoolsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.SchoolsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -136,6 +149,66 @@
             this.SchoolsGridView.Name = "SchoolsGridView";
             this.SchoolsGridView.Size = new System.Drawing.Size(767, 367);
             this.SchoolsGridView.TabIndex = 0;
+            // 
+            // SubjectsPage
+            // 
+            this.SubjectsPage.Controls.Add(this.CallNSubjectForm);
+            this.SubjectsPage.Controls.Add(this.SubjectsGridView);
+            this.SubjectsPage.Location = new System.Drawing.Point(4, 22);
+            this.SubjectsPage.Name = "SubjectsPage";
+            this.SubjectsPage.Size = new System.Drawing.Size(767, 399);
+            this.SubjectsPage.TabIndex = 2;
+            this.SubjectsPage.Text = "Subjects";
+            this.SubjectsPage.UseVisualStyleBackColor = true;
+            // 
+            // SubjectsGridView
+            // 
+            this.SubjectsGridView.AllowUserToAddRows = false;
+            this.SubjectsGridView.AutoGenerateColumns = false;
+            this.SubjectsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SubjectsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn2});
+            this.SubjectsGridView.DataSource = this.subjectBindingSource;
+            this.SubjectsGridView.Location = new System.Drawing.Point(0, 0);
+            this.SubjectsGridView.Name = "SubjectsGridView";
+            this.SubjectsGridView.Size = new System.Drawing.Size(767, 367);
+            this.SubjectsGridView.TabIndex = 0;
+            // 
+            // CallNSubjectForm
+            // 
+            this.CallNSubjectForm.Location = new System.Drawing.Point(3, 373);
+            this.CallNSubjectForm.Name = "CallNSubjectForm";
+            this.CallNSubjectForm.Size = new System.Drawing.Size(128, 23);
+            this.CallNSubjectForm.TabIndex = 1;
+            this.CallNSubjectForm.Text = "New subject";
+            this.CallNSubjectForm.UseVisualStyleBackColor = true;
+            this.CallNSubjectForm.Click += new System.EventHandler(this.CallAddForm_Click);
+            // 
+            // StudentsPage
+            // 
+            this.StudentsPage.Controls.Add(this.CallNStudentForm);
+            this.StudentsPage.Controls.Add(this.StudentsGridView);
+            this.StudentsPage.Location = new System.Drawing.Point(4, 22);
+            this.StudentsPage.Name = "StudentsPage";
+            this.StudentsPage.Size = new System.Drawing.Size(767, 399);
+            this.StudentsPage.TabIndex = 3;
+            this.StudentsPage.Text = "Students";
+            this.StudentsPage.UseVisualStyleBackColor = true;
+            // 
+            // StudentsGridView
+            // 
+            this.StudentsGridView.AllowUserToAddRows = false;
+            this.StudentsGridView.AutoGenerateColumns = false;
+            this.StudentsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.StudentsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn3,
+            this.groupNDataGridViewTextBoxColumn,
+            this.schoolDataGridViewTextBoxColumn});
+            this.StudentsGridView.DataSource = this.studentBindingSource;
+            this.StudentsGridView.Location = new System.Drawing.Point(0, 0);
+            this.StudentsGridView.Name = "StudentsGridView";
+            this.StudentsGridView.Size = new System.Drawing.Size(767, 367);
+            this.StudentsGridView.TabIndex = 0;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -159,33 +232,6 @@
             // 
             this.schoolBindingSource.DataSource = typeof(Courses.DataModel.School);
             // 
-            // SubjectsPage
-            // 
-            this.SubjectsPage.Controls.Add(this.CallNSubjectForm);
-            this.SubjectsPage.Controls.Add(this.SubjectsGridView);
-            this.SubjectsPage.Location = new System.Drawing.Point(4, 22);
-            this.SubjectsPage.Name = "SubjectsPage";
-            this.SubjectsPage.Size = new System.Drawing.Size(767, 399);
-            this.SubjectsPage.TabIndex = 2;
-            this.SubjectsPage.Text = "Subjects";
-            this.SubjectsPage.UseVisualStyleBackColor = true;
-            // 
-            // SubjectsGridView
-            // 
-            this.SubjectsGridView.AutoGenerateColumns = false;
-            this.SubjectsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SubjectsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameDataGridViewTextBoxColumn2});
-            this.SubjectsGridView.DataSource = this.subjectBindingSource;
-            this.SubjectsGridView.Location = new System.Drawing.Point(0, 0);
-            this.SubjectsGridView.Name = "SubjectsGridView";
-            this.SubjectsGridView.Size = new System.Drawing.Size(767, 367);
-            this.SubjectsGridView.TabIndex = 0;
-            // 
-            // subjectBindingSource
-            // 
-            this.subjectBindingSource.DataSource = typeof(Courses.DataModel.Subject);
-            // 
             // nameDataGridViewTextBoxColumn2
             // 
             this.nameDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -193,15 +239,43 @@
             this.nameDataGridViewTextBoxColumn2.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
             // 
-            // CallNSubjectForm
+            // subjectBindingSource
             // 
-            this.CallNSubjectForm.Location = new System.Drawing.Point(3, 373);
-            this.CallNSubjectForm.Name = "CallNSubjectForm";
-            this.CallNSubjectForm.Size = new System.Drawing.Size(128, 23);
-            this.CallNSubjectForm.TabIndex = 1;
-            this.CallNSubjectForm.Text = "New subject";
-            this.CallNSubjectForm.UseVisualStyleBackColor = true;
-            this.CallNSubjectForm.Click += new System.EventHandler(this.CallAddForm_Click);
+            this.subjectBindingSource.DataSource = typeof(Courses.DataModel.Subject);
+            // 
+            // nameDataGridViewTextBoxColumn3
+            // 
+            this.nameDataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn3.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn3.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn3.Name = "nameDataGridViewTextBoxColumn3";
+            // 
+            // groupNDataGridViewTextBoxColumn
+            // 
+            this.groupNDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.groupNDataGridViewTextBoxColumn.DataPropertyName = "GroupN";
+            this.groupNDataGridViewTextBoxColumn.HeaderText = "GroupN";
+            this.groupNDataGridViewTextBoxColumn.Name = "groupNDataGridViewTextBoxColumn";
+            // 
+            // schoolDataGridViewTextBoxColumn
+            // 
+            this.schoolDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.schoolDataGridViewTextBoxColumn.DataPropertyName = "School";
+            this.schoolDataGridViewTextBoxColumn.HeaderText = "School";
+            this.schoolDataGridViewTextBoxColumn.Name = "schoolDataGridViewTextBoxColumn";
+            // 
+            // studentBindingSource
+            // 
+            this.studentBindingSource.DataSource = typeof(Courses.DataModel.Student);
+            // 
+            // CallNStudentForm
+            // 
+            this.CallNStudentForm.Location = new System.Drawing.Point(4, 373);
+            this.CallNStudentForm.Name = "CallNStudentForm";
+            this.CallNStudentForm.Size = new System.Drawing.Size(112, 23);
+            this.CallNStudentForm.TabIndex = 1;
+            this.CallNStudentForm.Text = "New student";
+            this.CallNStudentForm.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -218,11 +292,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.TeachersGridView)).EndInit();
             this.SchoolsPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SchoolsGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.schoolBindingSource)).EndInit();
             this.SubjectsPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SubjectsGridView)).EndInit();
+            this.StudentsPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.StudentsGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schoolBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -245,6 +322,13 @@
         private System.Windows.Forms.DataGridView SubjectsGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn2;
         private System.Windows.Forms.BindingSource subjectBindingSource;
+        private System.Windows.Forms.TabPage StudentsPage;
+        private System.Windows.Forms.DataGridView StudentsGridView;
+        private System.Windows.Forms.BindingSource studentBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn groupNDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn schoolDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button CallNStudentForm;
     }
 }
 
