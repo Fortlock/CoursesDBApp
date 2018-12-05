@@ -95,6 +95,18 @@
     <Compile Include="DataModel\Topic.cs">
       <DependentUpon>CoursesContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AddSubjectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddSubjectForm.Designer.cs">
+      <DependentUpon>AddSubjectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddSchoolForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddSchoolForm.Designer.cs">
+      <DependentUpon>AddSchoolForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddTeacherForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +121,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AddSubjectForm.resx">
+      <DependentUpon>AddSubjectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddSchoolForm.resx">
+      <DependentUpon>AddSchoolForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddTeacherForm.resx">
       <DependentUpon>AddTeacherForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -133,6 +151,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Courses.DataModel.School.datasource" />
+    <None Include="Properties\DataSources\Courses.DataModel.Subject.datasource" />
     <None Include="Properties\DataSources\Courses.DataModel.Teacher.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

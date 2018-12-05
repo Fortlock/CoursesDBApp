@@ -1,6 +1,6 @@
 ﻿namespace Courses
 {
-    partial class AddTeacherForm
+    partial class AddSchoolForm
     {
         /// <summary>
         /// Required designer variable.
@@ -71,7 +71,7 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // AddTeacherForm
+            // AddSchoolForm
             // 
             this.AcceptButton = this.buttonOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -86,9 +86,9 @@
             this.MaximumSize = new System.Drawing.Size(355, 110);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(355, 110);
-            this.Name = "AddTeacherForm";
-            this.Text = "New teacher";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddTeacherForm_FormClosed);
+            this.Name = "AddSchoolForm";
+            this.Text = "New school";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddSchoolForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
