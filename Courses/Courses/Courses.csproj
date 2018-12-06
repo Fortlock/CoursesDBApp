@@ -74,6 +74,9 @@
       <DependentUpon>CoursesContext.edmx</DependentUpon>
     </Compile>
     <Compile Include="DataModel\CoursesRequests.cs" />
+    <Compile Include="DataModel\CoursesStudentsView.cs">
+      <DependentUpon>CoursesContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataModel\CourseStudent.cs">
       <DependentUpon>CoursesContext.tt</DependentUpon>
     </Compile>
@@ -131,6 +134,12 @@
     <Compile Include="Forms\AddTeacherForm.Designer.cs">
       <DependentUpon>AddTeacherForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\InfoCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InfoCourse.Designer.cs">
+      <DependentUpon>InfoCourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +163,9 @@
     <EmbeddedResource Include="Forms\AddTeacherForm.resx">
       <DependentUpon>AddTeacherForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InfoCourse.resx">
+      <DependentUpon>InfoCourse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -174,12 +186,15 @@
       <DependentUpon>CoursesContext.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Courses.DataModel.CoursesStudentsView.datasource" />
     <None Include="Properties\DataSources\Courses.DataModel.CoursesView1.datasource" />
+    <None Include="Properties\DataSources\Courses.DataModel.CourseView.datasource" />
     <None Include="Properties\DataSources\Courses.DataModel.School.datasource" />
     <None Include="Properties\DataSources\Courses.DataModel.Student.datasource" />
     <None Include="Properties\DataSources\Courses.DataModel.StudentView.datasource" />
     <None Include="Properties\DataSources\Courses.DataModel.Subject.datasource" />
     <None Include="Properties\DataSources\Courses.DataModel.Teacher.datasource" />
+    <None Include="Properties\DataSources\Courses.DataModel.Topic.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

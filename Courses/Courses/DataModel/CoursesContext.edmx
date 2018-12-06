@@ -71,6 +71,19 @@
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Courses.dbo.CoursesStudentsView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="CoursesStudentsView">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="IsPaid" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsPaid" Type="bit" Nullable="false" />
+          <Property Name="SertificateNumber" Type="int" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "Courses.dbo.CoursesView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="CoursesView">
           <Key>
@@ -199,6 +212,14 @@
           <EntitySet Name="Subjects" EntityType="Self.Subjects" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Topics" EntityType="Self.Topics" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CoursesStudentsView" EntityType="Self.CoursesStudentsView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CoursesStudentsView].[Id] AS [Id], 
+    [CoursesStudentsView].[Name] AS [Name], 
+    [CoursesStudentsView].[IsPaid] AS [IsPaid], 
+    [CoursesStudentsView].[SertificateNumber] AS [SertificateNumber]
+    FROM [dbo].[CoursesStudentsView] AS [CoursesStudentsView]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="CoursesView" EntityType="Self.CoursesView" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [CoursesView].[Id] AS [Id], 
@@ -458,6 +479,7 @@
           </AssociationSet>
           <EntitySet Name="StudentViews" EntityType="CoursesModel.StudentView" />
           <EntitySet Name="CourseViews" EntityType="CoursesModel.CourseView" />
+          <EntitySet Name="CoursesStudentsViews" EntityType="CoursesModel.CoursesStudentsView" />
         </EntityContainer>
         <EntityType Name="StudentView">
           <Key>
@@ -482,6 +504,17 @@
           <Property Name="Duration" Type="Int32" Nullable="false" />
           <Property Name="Cost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CoursesStudentsView">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="IsPaid" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsPaid" Type="Boolean" Nullable="false" />
+          <Property Name="SertificateNumber" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -578,6 +611,16 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Cost" ColumnName="Cost" />
                 <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CoursesStudentsViews">
+            <EntityTypeMapping TypeName="CoursesModel.CoursesStudentsView">
+              <MappingFragment StoreEntitySet="CoursesStudentsView">
+                <ScalarProperty Name="SertificateNumber" ColumnName="SertificateNumber" />
+                <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
