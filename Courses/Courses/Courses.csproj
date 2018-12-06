@@ -110,6 +110,24 @@
     <Compile Include="Forms\AddCourseForm.Designer.cs">
       <DependentUpon>AddCourseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\BindStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BindStudentForm.Designer.cs">
+      <DependentUpon>BindStudentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BindTeacherForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BindTeacherForm.Designer.cs">
+      <DependentUpon>BindTeacherForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddTopicForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddTopicForm.Designer.cs">
+      <DependentUpon>AddTopicForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +168,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\AddCourseForm.resx">
       <DependentUpon>AddCourseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BindStudentForm.resx">
+      <DependentUpon>BindStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BindTeacherForm.resx">
+      <DependentUpon>BindTeacherForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddTopicForm.resx">
+      <DependentUpon>AddTopicForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddStudentForm.resx">
       <DependentUpon>AddStudentForm.cs</DependentUpon>

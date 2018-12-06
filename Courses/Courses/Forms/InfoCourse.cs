@@ -47,5 +47,41 @@ namespace Courses
         }
 
         private void tabControl_Selecting(object sender, TabControlCancelEventArgs e) => RefreshTab(tabControl.SelectedTab.Name);
+
+        private void CallNForm_Click(object sender, EventArgs e)
+        {
+            string name = ((Button)sender).Name;
+            switch (name)
+            {
+                case "CallNTopicForm":
+                    {
+                        AddTopicForm addTopicForm = new AddTopicForm(this, course.Id);
+                        addTopicForm.Show();
+                        break;
+                    }
+                case "CallBTeacherForm":
+                    {
+                        BindTeacherForm bindTeacherForm = new BindTeacherForm(this, course.Id);
+                        bindTeacherForm.Show();
+                        break;
+                    }
+                case "CallBStudentForm":
+                    {
+                        BindStudentForm bindStudentForm = new BindStudentForm(this, course.Id);
+                        bindStudentForm.Show();
+                        break;
+                    }
+            }
+            Enabled = false;
+        }
+
+        private void InfoCourseForm_EnabledChanged(object sender, EventArgs e)
+        {
+            if (Enabled)
+            {
+                course = CoursesRequests.GetCourse(course.Id);
+                RefreshTab(tabControl.SelectedTab.Name);
+            }
+        }
     }
 }

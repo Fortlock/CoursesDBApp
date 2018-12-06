@@ -109,6 +109,69 @@ namespace Courses.DataModel
             return newCourse;
         }
 
+        public static Topic AddTopic(string name, int courseId)
+        {
+            CoursesEntities db = new CoursesEntities();
+            Topic newTopic = new Topic();
+            newTopic.Name = name;
+            newTopic.CourseId = courseId;
+            db.Topics.Add(newTopic);
+            try
+            {
+                db.SaveChanges();
+                db.Dispose();
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException)
+            {
+                db.Dispose();
+                return null;
+            }
+            return newTopic;
+        }
+
+        //add manytomany to db
+
+        public static CourseTeacher BindTeacherToCourse(int teacherId, int courseId)
+        {
+            CoursesEntities db = new CoursesEntities();
+            CourseTeacher newCourseTeacher = new CourseTeacher();
+            newCourseTeacher.CourseId = courseId;
+            newCourseTeacher.TeacherId = teacherId;
+            db.CourseTeachers.Add(newCourseTeacher);
+            try
+            {
+                db.SaveChanges();
+                db.Dispose();
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException)
+            {
+                db.Dispose();
+                return null;
+            }
+            return newCourseTeacher;
+        }
+
+        public static CourseStudent BindStudentToCourse(int studentId, int courseId)
+        {
+            CoursesEntities db = new CoursesEntities();
+            CourseStudent newCourseStudent = new CourseStudent();
+            newCourseStudent.CourseId = courseId;
+            newCourseStudent.StudentId = studentId;
+            newCourseStudent.IsPaid = false;
+            db.CourseStudents.Add(newCourseStudent);
+            try
+            {
+                db.SaveChanges();
+                db.Dispose();
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException)
+            {
+                db.Dispose();
+                return null;
+            }
+            return newCourseStudent;
+        }
+
         //get lists from db
 
         public static List<Teacher> GetTeachers(List<CourseTeacher> courseTeachers = null)
@@ -130,6 +193,14 @@ namespace Courses.DataModel
         {
             CoursesEntities db = new CoursesEntities();
             List<School> res = db.Schools.ToList();
+            db.Dispose();
+            return res;
+        }
+
+        public static List<Student> GetStudents()
+        {
+            CoursesEntities db = new CoursesEntities();
+            List<Student> res = db.Students.ToList();
             db.Dispose();
             return res;
         }
@@ -201,5 +272,7 @@ namespace Courses.DataModel
             db.Dispose();
             return res;
         }
+
+        
     }
 }

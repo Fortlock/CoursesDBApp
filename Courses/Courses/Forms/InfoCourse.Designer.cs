@@ -42,6 +42,8 @@
             this.TopicsGridView = new System.Windows.Forms.DataGridView();
             this.TeachersGridView = new System.Windows.Forms.DataGridView();
             this.StudentsGridView = new System.Windows.Forms.DataGridView();
+            this.CallNTopicForm = new System.Windows.Forms.Button();
+            this.CallBTeacherForm = new System.Windows.Forms.Button();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,7 +58,7 @@
             this.sertificateNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isPaidDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.coursesStudentsViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.CallNTopicForm = new System.Windows.Forms.Button();
+            this.CallBStudentForm = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.TopicsPage.SuspendLayout();
             this.TeachersPage.SuspendLayout();
@@ -95,11 +97,12 @@
             // 
             // TeachersPage
             // 
+            this.TeachersPage.Controls.Add(this.CallBTeacherForm);
             this.TeachersPage.Controls.Add(this.TeachersGridView);
             this.TeachersPage.Location = new System.Drawing.Point(4, 22);
             this.TeachersPage.Name = "TeachersPage";
             this.TeachersPage.Padding = new System.Windows.Forms.Padding(3);
-            this.TeachersPage.Size = new System.Drawing.Size(388, 275);
+            this.TeachersPage.Size = new System.Drawing.Size(390, 275);
             this.TeachersPage.TabIndex = 1;
             this.TeachersPage.Text = "Teachers";
             this.TeachersPage.UseVisualStyleBackColor = true;
@@ -160,6 +163,7 @@
             // 
             // StudentsPage
             // 
+            this.StudentsPage.Controls.Add(this.CallBStudentForm);
             this.StudentsPage.Controls.Add(this.StudentsGridView);
             this.StudentsPage.Location = new System.Drawing.Point(4, 22);
             this.StudentsPage.Name = "StudentsPage";
@@ -185,7 +189,7 @@
             this.TopicsGridView.Name = "TopicsGridView";
             this.TopicsGridView.ReadOnly = true;
             this.TopicsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.TopicsGridView.Size = new System.Drawing.Size(388, 240);
+            this.TopicsGridView.Size = new System.Drawing.Size(390, 240);
             this.TopicsGridView.TabIndex = 0;
             // 
             // TeachersGridView
@@ -199,12 +203,12 @@
             this.nameDataGridViewTextBoxColumn1,
             this.coursesTeachersDataGridViewTextBoxColumn});
             this.TeachersGridView.DataSource = this.teacherBindingSource;
-            this.TeachersGridView.Location = new System.Drawing.Point(-1, 0);
+            this.TeachersGridView.Location = new System.Drawing.Point(0, 0);
             this.TeachersGridView.MultiSelect = false;
             this.TeachersGridView.Name = "TeachersGridView";
             this.TeachersGridView.ReadOnly = true;
             this.TeachersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.TeachersGridView.Size = new System.Drawing.Size(389, 236);
+            this.TeachersGridView.Size = new System.Drawing.Size(390, 240);
             this.TeachersGridView.TabIndex = 0;
             // 
             // StudentsGridView
@@ -219,13 +223,33 @@
             this.sertificateNumberDataGridViewTextBoxColumn,
             this.isPaidDataGridViewCheckBoxColumn});
             this.StudentsGridView.DataSource = this.coursesStudentsViewBindingSource;
-            this.StudentsGridView.Location = new System.Drawing.Point(-1, 0);
+            this.StudentsGridView.Location = new System.Drawing.Point(0, 0);
             this.StudentsGridView.MultiSelect = false;
             this.StudentsGridView.Name = "StudentsGridView";
             this.StudentsGridView.ReadOnly = true;
             this.StudentsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.StudentsGridView.Size = new System.Drawing.Size(391, 243);
+            this.StudentsGridView.Size = new System.Drawing.Size(390, 240);
             this.StudentsGridView.TabIndex = 0;
+            // 
+            // CallNTopicForm
+            // 
+            this.CallNTopicForm.Location = new System.Drawing.Point(7, 246);
+            this.CallNTopicForm.Name = "CallNTopicForm";
+            this.CallNTopicForm.Size = new System.Drawing.Size(75, 23);
+            this.CallNTopicForm.TabIndex = 1;
+            this.CallNTopicForm.Text = "New topic";
+            this.CallNTopicForm.UseVisualStyleBackColor = true;
+            this.CallNTopicForm.Click += new System.EventHandler(this.CallNForm_Click);
+            // 
+            // CallBTeacherForm
+            // 
+            this.CallBTeacherForm.Location = new System.Drawing.Point(6, 246);
+            this.CallBTeacherForm.Name = "CallBTeacherForm";
+            this.CallBTeacherForm.Size = new System.Drawing.Size(75, 23);
+            this.CallBTeacherForm.TabIndex = 1;
+            this.CallBTeacherForm.Text = "Bind teacher";
+            this.CallBTeacherForm.UseVisualStyleBackColor = true;
+            this.CallBTeacherForm.Click += new System.EventHandler(this.CallNForm_Click);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -329,14 +353,15 @@
             // 
             this.coursesStudentsViewBindingSource.DataSource = typeof(Courses.DataModel.CoursesStudentsView);
             // 
-            // CallNTopicForm
+            // CallBStudentForm
             // 
-            this.CallNTopicForm.Location = new System.Drawing.Point(7, 246);
-            this.CallNTopicForm.Name = "CallNTopicForm";
-            this.CallNTopicForm.Size = new System.Drawing.Size(75, 23);
-            this.CallNTopicForm.TabIndex = 1;
-            this.CallNTopicForm.Text = "New topic";
-            this.CallNTopicForm.UseVisualStyleBackColor = true;
+            this.CallBStudentForm.Location = new System.Drawing.Point(6, 246);
+            this.CallBStudentForm.Name = "CallBStudentForm";
+            this.CallBStudentForm.Size = new System.Drawing.Size(75, 23);
+            this.CallBStudentForm.TabIndex = 1;
+            this.CallBStudentForm.Text = "Bind student";
+            this.CallBStudentForm.UseVisualStyleBackColor = true;
+            this.CallBStudentForm.Click += new System.EventHandler(this.CallNForm_Click);
             // 
             // InfoCourseForm
             // 
@@ -354,6 +379,7 @@
             this.Text = "Info about course";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InfoCourse_FormClosed);
             this.Load += new System.EventHandler(this.InfoCourse_Load);
+            this.EnabledChanged += new System.EventHandler(this.InfoCourseForm_EnabledChanged);
             this.tabControl.ResumeLayout(false);
             this.TopicsPage.ResumeLayout(false);
             this.TeachersPage.ResumeLayout(false);
@@ -399,5 +425,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn isPaidDataGridViewCheckBoxColumn;
         private System.Windows.Forms.BindingSource coursesStudentsViewBindingSource;
         private System.Windows.Forms.Button CallNTopicForm;
+        private System.Windows.Forms.Button CallBTeacherForm;
+        private System.Windows.Forms.Button CallBStudentForm;
     }
 }
