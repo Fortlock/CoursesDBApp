@@ -172,6 +172,187 @@ namespace Courses.DataModel
             return newCourseStudent;
         }
 
+        //delete from db
+
+        public static bool DelTeacher(int id)
+        {
+            CoursesEntities db = new CoursesEntities();
+            Teacher teacher = db.Teachers.Find(id);
+            if (teacher!=null)
+            {
+                db.Teachers.Remove(teacher);
+                try
+                {
+                    db.SaveChanges();
+                    db.Dispose();
+                    return true; 
+                }
+                catch(Exception)
+                {
+                    db.Dispose();
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        public static bool DelSchool(int id)
+        {
+            CoursesEntities db = new CoursesEntities();
+            School school = db.Schools.Find(id);
+            if (school != null)
+            {
+                db.Schools.Remove(school);
+                try
+                {
+                    db.SaveChanges();
+                    db.Dispose();
+                    return true;
+                }
+                catch (Exception)
+                {
+                    db.Dispose();
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        public static bool DelSubject(int id)
+        {
+            CoursesEntities db = new CoursesEntities();
+            Subject subject = db.Subjects.Find(id);
+            if (subject != null)
+            {
+                db.Subjects.Remove(subject);
+                try
+                {
+                    db.SaveChanges();
+                    db.Dispose();
+                    return true;
+                }
+                catch (Exception)
+                {
+                    db.Dispose();
+                    return false;
+                }
+            }
+            return false;
+
+        }
+
+        public static bool DelStudent(int id)
+        {
+            CoursesEntities db = new CoursesEntities();
+            Student student = db.Students.Find(id);
+            if (student != null)
+            {
+                db.Students.Remove(student);
+                try
+                {
+                    db.SaveChanges();
+                    db.Dispose();
+                    return true;
+                }
+                catch (Exception)
+                {
+                    db.Dispose();
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        public static bool DelCourse(int id)
+        {
+            CoursesEntities db = new CoursesEntities();
+            Course course = db.Courses.Find(id);
+            if (course != null)
+            {
+                db.Courses.Remove(course);
+                try
+                {
+                    db.SaveChanges();
+                    db.Dispose();
+                    return true;
+                }
+                catch (Exception)
+                {
+                    db.Dispose();
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        public static bool DelTopic(int id)
+        {
+            CoursesEntities db = new CoursesEntities();
+            Topic topic = db.Topics.Find(id);
+            if (topic != null)
+            {
+                db.Topics.Remove(topic);
+                try
+                {
+                    db.SaveChanges();
+                    db.Dispose();
+                    return true;
+                }
+                catch (Exception)
+                {
+                    db.Dispose();
+                    return false;
+                }
+            }
+            return false;
+
+        }
+
+        //delete manytomany from db
+
+        public static bool DelBindTeacherToCourse(int id)
+        {
+            CoursesEntities db = new CoursesEntities();
+            CourseTeacher courseTeacher = db.CourseTeachers.Find(id);
+            if (courseTeacher != null)
+            {
+                db.CourseTeachers.Remove(courseTeacher);
+                try
+                {
+                    db.SaveChanges();
+                    db.Dispose();
+                    return true;
+                }
+                catch (Exception)
+                {
+                    db.Dispose();
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        public static bool DelBindStudentToCourse(int id)
+        {
+            CoursesEntities db = new CoursesEntities();
+            CourseStudent courseStudent = db.CourseStudents.Find(id);
+            if (courseStudent != null)
+            {
+                db.CourseStudents.Remove(courseStudent);
+                try
+                {
+                    db.SaveChanges();
+                    db.Dispose();
+                    return true;
+                }
+                catch (Exception)
+                {
+                    db.Dispose();
+                    return false;
+                }
+            }
+            return false;
+        }
         //get lists from db
 
         public static List<Teacher> GetTeachers(List<CourseTeacher> courseTeachers = null)

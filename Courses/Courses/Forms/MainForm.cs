@@ -76,6 +76,59 @@ namespace Courses
             Enabled = false;
         }
 
+        private void CallDelForm_Click(object sender, EventArgs e)
+        {
+            string name = ((Button)sender).Name;
+            switch (name)
+            {
+                case "CallDTeacherForm":
+                    {
+                        MessageBox.Show(
+                            "Are you sure?", 
+                            "Delete teacher",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning);
+                        break;
+                    }
+                case "CallDSchoolForm":
+                    {
+                        MessageBox.Show(
+                            "Are you sure?", 
+                            "Delete school",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning);
+                        break;
+                    }
+                case "CallDSubjectForm":
+                    {
+                        MessageBox.Show(
+                            "Are you sure?", 
+                            "Delete subject",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning);
+                        break;
+                    }
+                case "CallDStudentForm":
+                    {
+                        MessageBox.Show(
+                            "Are you sure?", 
+                            "Delete student",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning);
+                        break;
+                    }
+                case "CallDCourseForm":
+                    {
+                        MessageBox.Show(
+                            "Are you sure?", 
+                            "Delete course",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning);
+                        break;
+                    }
+            }
+        }
+
         private void tabControl_Selecting(object sender, TabControlCancelEventArgs e) => RefreshTab(tabControl.SelectedTab.Name);
 
         private void MainForm_EnabledChanged(object sender, EventArgs e)
@@ -90,5 +143,7 @@ namespace Courses
             infoCourseForm.Show();
             Enabled = false;
         }
+
+        
     }
 }
