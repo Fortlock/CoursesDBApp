@@ -353,6 +353,170 @@ namespace Courses.DataModel
             }
             return false;
         }
+
+        //edit db
+
+        public static Teacher EditTeacher(int id, string name)
+        {
+            CoursesEntities db = new CoursesEntities();
+            Teacher teacher = db.Teachers.Find(id);
+            if (teacher!=null)
+            {
+                teacher.Name = name;
+                try
+                {
+                    db.SaveChanges();
+                    db.Dispose();
+                    return teacher;
+                }
+                catch (System.Data.Entity.Validation.DbEntityValidationException)
+                {
+                    db.Dispose();
+                    return null;
+                }
+            }
+            return null;
+        }
+
+        public static School EditSchool(int id, string name)
+        {
+            CoursesEntities db = new CoursesEntities();
+            School school = db.Schools.Find(id);
+            if (school != null)
+            {
+                school.Name = name;
+                try
+                {
+                    db.SaveChanges();
+                    db.Dispose();
+                    return school;
+                }
+                catch (System.Data.Entity.Validation.DbEntityValidationException)
+                {
+                    db.Dispose();
+                    return null;
+                }
+            }
+            return null;
+        }
+
+        public static Subject EditSubject(int id, string name)
+        {
+            CoursesEntities db = new CoursesEntities();
+            Subject subject = db.Subjects.Find(id);
+            if (subject != null)
+            {
+                subject.Name = name;
+                try
+                {
+                    db.SaveChanges();
+                    db.Dispose();
+                    return subject;
+                }
+                catch (System.Data.Entity.Validation.DbEntityValidationException)
+                {
+                    db.Dispose();
+                    return null;
+                }
+            }
+            return null;
+        }
+
+        public static Student EditStudent(int id, string name, int group)
+        {
+            CoursesEntities db = new CoursesEntities();
+            Student student = db.Students.Find(id);
+            if (student != null)
+            {
+                student.Name = name;
+                student.GroupN = group;
+                try
+                {
+                    db.SaveChanges();
+                    db.Dispose();
+                    return student;
+                }
+                catch (System.Data.Entity.Validation.DbEntityValidationException)
+                {
+                    db.Dispose();
+                    return null;
+                }
+            }
+            return null;
+        }
+
+        public static Course EditCourse(int id, int cost, int duration, int subjectId)
+        {
+            CoursesEntities db = new CoursesEntities();
+            Course course = db.Courses.Find(id);
+            if (course != null)
+            {
+                course.Cost = cost;
+                course.Duration = duration;
+                course.SubjectId = subjectId;
+                try
+                {
+                    db.SaveChanges();
+                    db.Dispose();
+                    return course;
+                }
+                catch (System.Data.Entity.Validation.DbEntityValidationException)
+                {
+                    db.Dispose();
+                    return null;
+                }
+            }
+            return null;
+        }
+
+        public static Topic EditTopic(int id, string name, int courseId)
+        {
+            CoursesEntities db = new CoursesEntities();
+            Topic topic = db.Topics.Find(id);
+            if (topic != null)
+            {
+                topic.Name = name;
+                topic.CourseId = courseId;
+                try
+                {
+                    db.SaveChanges();
+                    db.Dispose();
+                    return topic;
+                }
+                catch (System.Data.Entity.Validation.DbEntityValidationException)
+                {
+                    db.Dispose();
+                    return null;
+                }
+            }
+            return null;
+        }
+
+        //edit manytomany db
+
+        public static CourseStudent EditBindStudentToCourse(int id, bool isPaid, int sertificateNumber)
+        {
+            CoursesEntities db = new CoursesEntities();
+            CourseStudent courseStudent = db.CourseStudents.Find(id);
+            if (courseStudent != null)
+            {
+                courseStudent.IsPaid = isPaid;
+                courseStudent.SertificateNumber = sertificateNumber;
+                try
+                {
+                    db.SaveChanges();
+                    db.Dispose();
+                    return courseStudent;
+                }
+                catch (System.Data.Entity.Validation.DbEntityValidationException)
+                {
+                    db.Dispose();
+                    return null;
+                }
+            }
+            return null;
+        }
+
         //get lists from db
 
         public static List<Teacher> GetTeachers(List<CourseTeacher> courseTeachers = null)
