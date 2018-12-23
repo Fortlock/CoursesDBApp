@@ -28,11 +28,31 @@ namespace Courses
         {
             switch (name)
             {
-                case "TeachersPage": TeachersGridView.DataSource = CoursesRequests.GetTeachers(); break;
-                case "SchoolsPage": SchoolsGridView.DataSource = CoursesRequests.GetSchools(); break;
-                case "SubjectsPage": SubjectsGridView.DataSource = CoursesRequests.GetSubjects(); break;
-                case "StudentsPage": StudentsGridView.DataSource = CoursesRequests.GetStudentViews(); break;
-                case "CoursesPage": CoursesGridView.DataSource = CoursesRequests.GetCourseViews(); break;
+                case "TeachersPage":
+                    {
+                        TeachersGridView.DataSource = CoursesRequests.GetTeachers();
+                        if (TeachersGridView.RowCount == 0) CallDTeacherForm.Enabled = false; else CallDTeacherForm.Enabled = true; break;
+                    }
+                case "SchoolsPage":
+                    {
+                        SchoolsGridView.DataSource = CoursesRequests.GetSchools();
+                        if (SchoolsGridView.RowCount == 0) CallDSchoolForm.Enabled = false; else CallDSchoolForm.Enabled = true; break;
+                    }
+                case "SubjectsPage":
+                    {
+                        SubjectsGridView.DataSource = CoursesRequests.GetSubjects();
+                        if (SubjectsGridView.RowCount == 0) CallDSubjectForm.Enabled = false; else CallDSubjectForm.Enabled = true; break;
+                    }
+                case "StudentsPage":
+                    {
+                        StudentsGridView.DataSource = CoursesRequests.GetStudentViews();
+                        if (StudentsGridView.RowCount == 0) CallDStudentForm.Enabled = false; else CallDStudentForm.Enabled = true; break;
+                    }
+                case "CoursesPage":
+                    {
+                        CoursesGridView.DataSource = CoursesRequests.GetCourseViews();
+                        if (CoursesGridView.RowCount == 0) CallDCourseForm.Enabled = false; else CallDCourseForm.Enabled = true; break;
+                    }
                 default: break;
             }
         }
@@ -79,54 +99,67 @@ namespace Courses
         private void CallDelForm_Click(object sender, EventArgs e)
         {
             string name = ((Button)sender).Name;
+            DialogResult res;
+            Enabled = false;
             switch (name)
             {
                 case "CallDTeacherForm":
                     {
-                        MessageBox.Show(
+                        res = MessageBox.Show(
                             "Are you sure?", 
                             "Delete teacher",
                             MessageBoxButtons.YesNo,
                             MessageBoxIcon.Warning);
+                        if (res == DialogResult.Yes)
+                            CoursesRequests.DelTeacher((int)(TeachersGridView.SelectedRows[0].Cells[0].Value));
                         break;
                     }
                 case "CallDSchoolForm":
                     {
-                        MessageBox.Show(
+                        res = MessageBox.Show(
                             "Are you sure?", 
                             "Delete school",
                             MessageBoxButtons.YesNo,
                             MessageBoxIcon.Warning);
+                        if (res == DialogResult.Yes)
+                            CoursesRequests.DelSchool((int)(SchoolsGridView.SelectedRows[0].Cells[0].Value));
                         break;
                     }
                 case "CallDSubjectForm":
                     {
-                        MessageBox.Show(
+                        res = MessageBox.Show(
                             "Are you sure?", 
                             "Delete subject",
                             MessageBoxButtons.YesNo,
                             MessageBoxIcon.Warning);
+                        if (res == DialogResult.Yes)
+                            CoursesRequests.DelSubject((int)(SubjectsGridView.SelectedRows[0].Cells[0].Value));
                         break;
                     }
                 case "CallDStudentForm":
                     {
-                        MessageBox.Show(
+                        res = MessageBox.Show(
                             "Are you sure?", 
                             "Delete student",
                             MessageBoxButtons.YesNo,
                             MessageBoxIcon.Warning);
+                        if (res == DialogResult.Yes)
+                            CoursesRequests.DelStudent((int)(StudentsGridView.SelectedRows[0].Cells[0].Value));
                         break;
                     }
                 case "CallDCourseForm":
                     {
-                        MessageBox.Show(
+                        res = MessageBox.Show(
                             "Are you sure?", 
                             "Delete course",
                             MessageBoxButtons.YesNo,
                             MessageBoxIcon.Warning);
+                        if (res == DialogResult.Yes)
+                            CoursesRequests.DelCourse((int)(CoursesGridView.SelectedRows[0].Cells[0].Value));
                         break;
                     }
             }
+            Enabled = true;
         }
 
         private void tabControl_Selecting(object sender, TabControlCancelEventArgs e) => RefreshTab(tabControl.SelectedTab.Name);
