@@ -176,7 +176,5 @@ namespace Courses
             infoCourseForm.Show();
             Enabled = false;
         }
-
-        
     }
 }

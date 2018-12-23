@@ -46,6 +46,50 @@ namespace Courses
             parentForm.Enabled = true;
         }
 
+        private void CallDelForm_Click(object sender, EventArgs e)
+        {
+            string name = ((Button)sender).Name;
+            DialogResult res;
+            Enabled = false;
+            switch (name)
+            {
+                case "CallDTopicForm":
+                    {
+                        res = MessageBox.Show(
+                            "Are you sure?",
+                            "Delete topic",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning);
+                        if (res == DialogResult.Yes)
+                            CoursesRequests.DelTopic((int)(TopicsGridView.SelectedRows[0].Cells[0].Value));
+                        break;
+                    }
+                case "CallDBTeacherForm":
+                    {
+                        res = MessageBox.Show(
+                            "Are you sure?",
+                            "Delete bind teacher",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning);
+                        if (res == DialogResult.Yes)
+                            CoursesRequests.DelBindTeacherToCourse((int)(TeachersGridView.SelectedRows[0].Cells[0].Value));
+                        break;
+                    }
+                case "CallDBStudentForm":
+                    {
+                        res = MessageBox.Show(
+                            "Are you sure?",
+                            "Delete student",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning);
+                        if (res == DialogResult.Yes)
+                            CoursesRequests.DelBindStudentToCourse((int)(StudentsGridView.SelectedRows[0].Cells[0].Value));
+                        break;
+                    }
+            }
+            Enabled = true;
+        }
+
         private void tabControl_Selecting(object sender, TabControlCancelEventArgs e) => RefreshTab(tabControl.SelectedTab.Name);
 
         private void CallNForm_Click(object sender, EventArgs e)
