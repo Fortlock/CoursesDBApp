@@ -89,6 +89,12 @@
     <Compile Include="DataModel\School.cs">
       <DependentUpon>CoursesContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataModel\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>CoursesContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\sp_helpdiagrams_Result.cs">
+      <DependentUpon>CoursesContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataModel\Student.cs">
       <DependentUpon>CoursesContext.tt</DependentUpon>
     </Compile>

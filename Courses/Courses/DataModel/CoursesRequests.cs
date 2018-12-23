@@ -598,7 +598,7 @@ namespace Courses.DataModel
             else
             {
                 res = new List<CoursesStudentsView>();
-                courseStudents.ForEach(p => res.Add(db.CoursesStudentsViews.Where(q => q.Id == p.StudentId).First()));
+                courseStudents.ForEach(p => res.Add(db.CoursesStudentsViews.Where(q => q.StudentId == p.StudentId).First()));
             }
             db.Dispose();
             return res;
