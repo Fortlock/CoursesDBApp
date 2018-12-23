@@ -38,6 +38,7 @@ namespace Courses.DataModel
         public virtual DbSet<StudentView> StudentViews { get; set; }
         public virtual DbSet<CourseView> CourseViews { get; set; }
         public virtual DbSet<CoursesStudentsView> CoursesStudentsViews { get; set; }
+        public virtual DbSet<CoursesTeachersView> CoursesTeachersViews { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

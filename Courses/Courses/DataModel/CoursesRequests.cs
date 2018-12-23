@@ -604,6 +604,21 @@ namespace Courses.DataModel
             return res;
         }
 
+        public static List<CoursesTeachersView> GetCourseTeachersViews(List<CourseTeacher> courseTeachers = null)
+        {
+            List<CoursesTeachersView> res;
+            CoursesEntities db = new CoursesEntities();
+            if (courseTeachers == null)
+                res = db.CoursesTeachersViews.ToList();
+            else
+            {
+                res = new List<CoursesTeachersView>();
+                courseTeachers.ForEach(p => res.Add(db.CoursesTeachersViews.Where(q => q.TeacherId == p.TeacherId).First()));
+            }
+            db.Dispose();
+            return res;
+        }
+
         //get entity from db
 
         public static Course GetCourse(int id)

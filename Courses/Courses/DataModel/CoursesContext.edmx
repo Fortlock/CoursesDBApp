@@ -86,6 +86,18 @@
           <Property Name="SertificateNumber" Type="int" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Courses.dbo.CoursesTeachersView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="CoursesTeachersView">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="TeacherId" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="TeacherId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "Courses.dbo.CoursesView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="CoursesView">
           <Key>
@@ -253,6 +265,13 @@
     [CoursesStudentsView].[IsPaid] AS [IsPaid], 
     [CoursesStudentsView].[SertificateNumber] AS [SertificateNumber]
     FROM [dbo].[CoursesStudentsView] AS [CoursesStudentsView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CoursesTeachersView" EntityType="Self.CoursesTeachersView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CoursesTeachersView].[Id] AS [Id], 
+    [CoursesTeachersView].[TeacherId] AS [TeacherId], 
+    [CoursesTeachersView].[Name] AS [Name]
+    FROM [dbo].[CoursesTeachersView] AS [CoursesTeachersView]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="CoursesView" EntityType="Self.CoursesView" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -544,6 +563,7 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="CoursesTeachersViews" EntityType="CoursesModel.CoursesTeachersView" />
         </EntityContainer>
         <EntityType Name="StudentView">
           <Key>
@@ -593,6 +613,16 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="CoursesTeachersView">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="TeacherId" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="TeacherId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -727,6 +757,15 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище CoursesModel.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище CoursesModel.sp_upgraddiagrams" />
+          <EntitySetMapping Name="CoursesTeachersViews">
+            <EntityTypeMapping TypeName="CoursesModel.CoursesTeachersView">
+              <MappingFragment StoreEntitySet="CoursesTeachersView">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

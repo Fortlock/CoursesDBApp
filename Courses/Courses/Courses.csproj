@@ -77,6 +77,9 @@
     <Compile Include="DataModel\CoursesStudentsView.cs">
       <DependentUpon>CoursesContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataModel\CoursesTeachersView.cs">
+      <DependentUpon>CoursesContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataModel\CourseStudent.cs">
       <DependentUpon>CoursesContext.tt</DependentUpon>
     </Compile>
@@ -221,6 +224,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Courses.DataModel.CoursesStudentsView.datasource" />
+    <None Include="Properties\DataSources\Courses.DataModel.CoursesTeachersView.datasource" />
     <None Include="Properties\DataSources\Courses.DataModel.CoursesView1.datasource" />
     <None Include="Properties\DataSources\Courses.DataModel.CourseView.datasource" />
     <None Include="Properties\DataSources\Courses.DataModel.School.datasource" />

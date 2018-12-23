@@ -34,9 +34,24 @@ namespace Courses
         {
             switch (name)
             {
-                case "TeachersPage": TeachersGridView.DataSource = CoursesRequests.GetTeachers(course.CoursesTeachers.ToList()); break;
-                case "TopicsPage": TopicsGridView.DataSource = CoursesRequests.GetTopics(course.Id); break;
-                case "StudentsPage": StudentsGridView.DataSource = CoursesRequests.GetCourseStudentViews(course.CoursesStudents.ToList()); break;
+                case "TeachersPage":
+                    {
+                        TeachersGridView.DataSource = CoursesRequests.GetCourseTeachersViews(course.CoursesTeachers.ToList());
+                        if (TeachersGridView.RowCount == 0) CallDBTeacherForm.Enabled = false; else CallDBTeacherForm.Enabled = true;
+                        break;
+                    }
+                case "TopicsPage":
+                    {
+                        TopicsGridView.DataSource = CoursesRequests.GetTopics(course.Id);
+                        if (TopicsGridView.RowCount == 0) CallDTopicForm.Enabled = false; else CallDTopicForm.Enabled = true;
+                        break;
+                    }
+                case "StudentsPage":
+                    {
+                        StudentsGridView.DataSource = CoursesRequests.GetCourseStudentViews(course.CoursesStudents.ToList());
+                        if (StudentsGridView.RowCount == 0) CallDBStudentForm.Enabled = false; else CallDBStudentForm.Enabled = true;
+                        break;
+                    }
                 default: break;
             }
         }
