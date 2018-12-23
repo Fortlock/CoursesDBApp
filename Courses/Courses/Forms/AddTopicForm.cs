@@ -34,8 +34,10 @@ namespace Courses
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            CoursesRequests.AddTopic(nameBox.Text, CourseId);
-            Close();
+            if (CoursesRequests.AddTopic(nameBox.Text, CourseId) == null)
+                MessageBox.Show("Тема не добавлена", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+                Close();
         }
     }
 }

@@ -34,15 +34,21 @@ namespace Courses
         {
             int duration = 0;
             decimal cost = 0;
-            if (int.TryParse(durationBox.Text,out duration) && decimal.TryParse(costBox.Text, out cost) && duration>0 && duration<=500 && cost>=0)
+            if (!Validator.Cost(costBox.Text) || !Validator.Duration(durationBox.Text) || 
+                !int.TryParse(durationBox.Text, out duration) || !decimal.TryParse(costBox.Text, out cost))
+                MessageBox.Show("Неверный формат данных", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
             {
                 try
                 {
                     CoursesRequests.AddCourse((int)subjectBox.SelectedValue, duration, cost);
+                    Close();
                 }
-                catch (Exception){}
+                catch (Exception)
+                {
+                    MessageBox.Show("Шото сломалось", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            Close();
         }
 
         private void AddCourseForm_Load(object sender, EventArgs e)

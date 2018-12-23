@@ -34,15 +34,22 @@ namespace Courses
         {
             string name = nameBox.Text;
             int group = 0;
-            if (int.TryParse(groupBox.Text,out group) && group>0 && group<=12)
+            if (!Validator.Group(groupBox.Text) || !int.TryParse(groupBox.Text, out group))
+            {
+                MessageBox.Show("Неверный формат данных", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
             {
                 try
                 {
                     CoursesRequests.AddStudent(nameBox.Text, group, (int)schoolBox.SelectedValue);
+                    Close();
                 }
-                catch (Exception){}
-            }
-            Close();
+                catch (Exception)
+                {
+                    MessageBox.Show("Шото сломалось", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }   
         }
 
         private void AddStudentForm_Load(object sender, EventArgs e)

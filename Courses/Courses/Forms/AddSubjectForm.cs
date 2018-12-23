@@ -32,8 +32,10 @@ namespace Courses
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            CoursesRequests.AddSubject(nameBox.Text);
-            Close();
+            if (CoursesRequests.AddSubject(nameBox.Text) == null)
+                MessageBox.Show("Предмет не добавлен", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+                Close();
         }
     }
 }

@@ -32,8 +32,10 @@ namespace Courses
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            CoursesRequests.AddTeacher(nameBox.Text);
-            Close();
+            if (CoursesRequests.AddTeacher(nameBox.Text)==null)
+                MessageBox.Show("Учитель не добавлен", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+                Close();
         }
     }
 }

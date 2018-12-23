@@ -37,9 +37,12 @@ namespace Courses
             try
             {
                 CoursesRequests.BindStudentToCourse((int)studentBox.SelectedValue, CourseId);
+                Close();
             }
-            catch (Exception) { }
-            Close();
+            catch (Exception)
+            {
+                MessageBox.Show("Не выбран элемент!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void BindTeacherForm_Load(object sender, EventArgs e)

@@ -32,8 +32,10 @@ namespace Courses
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            CoursesRequests.AddSchool(nameBox.Text);
-            Close();
+            if (CoursesRequests.AddSchool(nameBox.Text) == null)
+                MessageBox.Show("Школа не добавлена", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+                Close();
         }
     }
 }
