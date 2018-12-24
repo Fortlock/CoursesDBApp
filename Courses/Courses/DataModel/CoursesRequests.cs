@@ -13,6 +13,8 @@ namespace Courses.DataModel
         public static Teacher AddTeacher(string name)
         {
             CoursesEntities db = new CoursesEntities();
+            if (db.Teachers.Where(p => p.Name == name).Count() != 0)
+                return null;
             Teacher newTeacher = new Teacher();
             newTeacher.Name = name;
             db.Teachers.Add(newTeacher);
@@ -32,6 +34,8 @@ namespace Courses.DataModel
         public static School AddSchool(string name)
         {
             CoursesEntities db = new CoursesEntities();
+            if (db.Schools.Where(p => p.Name == name).Count() != 0)
+                return null;
             School newSchool = new School();
             newSchool.Name = name;
             db.Schools.Add(newSchool);
@@ -51,6 +55,8 @@ namespace Courses.DataModel
         public static Subject AddSubject(string name)
         {
             CoursesEntities db = new CoursesEntities();
+            if (db.Subjects.Where(p => p.Name == name).Count() != 0)
+                return null;
             Subject newSubject = new Subject();
             newSubject.Name = name;
             db.Subjects.Add(newSubject);
@@ -70,6 +76,8 @@ namespace Courses.DataModel
         public static Student AddStudent(string name,int group,int schoolId)
         {
             CoursesEntities db = new CoursesEntities();
+            if (db.Students.Where(p => p.Name == name && p.GroupN == group && p.SchoolId == schoolId).Count() != 0)
+                return null;
             Student newStudent = new Student();
             newStudent.Name = name;
             newStudent.GroupN = group;
@@ -91,6 +99,8 @@ namespace Courses.DataModel
         public static Course AddCourse(int subjectId, int duration, decimal cost)
         {
             CoursesEntities db = new CoursesEntities();
+            if (db.Courses.Where(p => p.SubjectId == subjectId && p.Duration == duration && p.Cost == cost).Count() != 0)
+                return null;
             Course newCourse = new Course();
             newCourse.SubjectId = subjectId;
             newCourse.Duration = duration;
@@ -112,6 +122,8 @@ namespace Courses.DataModel
         public static Topic AddTopic(string name, int courseId)
         {
             CoursesEntities db = new CoursesEntities();
+            if (db.Topics.Where(p => p.Name == name && p.CourseId == courseId).Count() != 0)
+                return null;
             Topic newTopic = new Topic();
             newTopic.Name = name;
             newTopic.CourseId = courseId;
@@ -134,6 +146,8 @@ namespace Courses.DataModel
         public static CourseTeacher BindTeacherToCourse(int teacherId, int courseId)
         {
             CoursesEntities db = new CoursesEntities();
+            if (db.CourseTeachers.Where(p => p.TeacherId == teacherId && p.CourseId == courseId).Count() != 0)
+                return null;
             CourseTeacher newCourseTeacher = new CourseTeacher();
             newCourseTeacher.CourseId = courseId;
             newCourseTeacher.TeacherId = teacherId;
@@ -154,6 +168,8 @@ namespace Courses.DataModel
         public static CourseStudent BindStudentToCourse(int studentId, int courseId)
         {
             CoursesEntities db = new CoursesEntities();
+            //if (db.CourseStudents.Where(p => p.StudentId == studentId && p.CourseId == courseId).Count() != 0)
+            //    return null;
             CourseStudent newCourseStudent = new CourseStudent();
             newCourseStudent.CourseId = courseId;
             newCourseStudent.StudentId = studentId;
@@ -359,6 +375,8 @@ namespace Courses.DataModel
         public static Teacher EditTeacher(int id, string name)
         {
             CoursesEntities db = new CoursesEntities();
+            if (db.Teachers.Where(p => p.Name == name).Count() != 0)
+                return null;
             Teacher teacher = db.Teachers.Find(id);
             if (teacher!=null)
             {
@@ -381,6 +399,8 @@ namespace Courses.DataModel
         public static School EditSchool(int id, string name)
         {
             CoursesEntities db = new CoursesEntities();
+            if (db.Schools.Where(p => p.Name == name).Count() != 0)
+                return null;
             School school = db.Schools.Find(id);
             if (school != null)
             {
@@ -403,6 +423,8 @@ namespace Courses.DataModel
         public static Subject EditSubject(int id, string name)
         {
             CoursesEntities db = new CoursesEntities();
+            if (db.Subjects.Where(p => p.Name == name).Count() != 0)
+                return null;
             Subject subject = db.Subjects.Find(id);
             if (subject != null)
             {
@@ -425,6 +447,8 @@ namespace Courses.DataModel
         public static Student EditStudent(int id, string name, int group, int schoolId)
         {
             CoursesEntities db = new CoursesEntities();
+            if (db.Students.Where(p => p.Name == name && p.GroupN == group && p.SchoolId == schoolId).Count() != 0)
+                return null;
             Student student = db.Students.Find(id);
             if (student != null)
             {
@@ -449,6 +473,8 @@ namespace Courses.DataModel
         public static Course EditCourse(int id, decimal cost, int duration, int subjectId)
         {
             CoursesEntities db = new CoursesEntities();
+            if (db.Courses.Where(p => p.SubjectId == subjectId && p.Duration == duration && p.Cost == cost).Count() != 0)
+                return null;
             Course course = db.Courses.Find(id);
             if (course != null)
             {
@@ -473,6 +499,8 @@ namespace Courses.DataModel
         public static Topic EditTopic(int id, string name, int courseId)
         {
             CoursesEntities db = new CoursesEntities();
+            if (db.Topics.Where(p => p.Name == name && p.CourseId == courseId).Count() != 0)
+                return null;
             Topic topic = db.Topics.Find(id);
             if (topic != null)
             {

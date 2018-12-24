@@ -42,8 +42,10 @@ namespace Courses
             {
                 try
                 {
-                    CoursesRequests.AddStudent(nameBox.Text, group, (int)schoolBox.SelectedValue);
-                    Close();
+                    if (CoursesRequests.AddStudent(nameBox.Text, group, (int)schoolBox.SelectedValue) == null)
+                        MessageBox.Show("Такой ученик уже есть", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        Close();
                 }
                 catch (Exception)
                 {

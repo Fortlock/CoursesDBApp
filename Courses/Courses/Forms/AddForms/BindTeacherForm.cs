@@ -36,8 +36,10 @@ namespace Courses
         {
             try
             {
-                CoursesRequests.BindTeacherToCourse((int)teacherBox.SelectedValue, CourseId);
-                Close();
+                if (CoursesRequests.BindTeacherToCourse((int)teacherBox.SelectedValue, CourseId) == null)
+                    MessageBox.Show("Учитель уже ведет курс", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    Close();
             }
             catch (Exception)
             {

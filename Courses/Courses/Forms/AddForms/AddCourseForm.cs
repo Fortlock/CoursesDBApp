@@ -41,8 +41,10 @@ namespace Courses
             {
                 try
                 {
-                    CoursesRequests.AddCourse((int)subjectBox.SelectedValue, duration, cost);
-                    Close();
+                    if (CoursesRequests.AddCourse((int)subjectBox.SelectedValue, duration, cost)==null)
+                        MessageBox.Show("Такой курс уже есть", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        Close();
                 }
                 catch (Exception)
                 {

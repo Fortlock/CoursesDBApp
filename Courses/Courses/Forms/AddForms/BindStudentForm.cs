@@ -36,8 +36,10 @@ namespace Courses
         {
             try
             {
-                CoursesRequests.BindStudentToCourse((int)studentBox.SelectedValue, CourseId);
-                Close();
+                if (CoursesRequests.BindStudentToCourse((int)studentBox.SelectedValue, CourseId) == null)
+                    MessageBox.Show("Студент уже записан на курс", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    Close();
             }
             catch (Exception)
             {
