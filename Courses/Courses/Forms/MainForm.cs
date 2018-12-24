@@ -31,28 +31,28 @@ namespace Courses
                 case "TeachersPage":
                     {
                         TeachersGridView.DataSource = CoursesRequests.GetTeachers();
-                        if (TeachersGridView.RowCount == 0) CallDTeacherForm.Enabled = false; else CallDTeacherForm.Enabled = true; break;
+                        if (TeachersGridView.RowCount == 0) CallDTeacherForm.Enabled = CallETeacherForm.Enabled = false; else CallDTeacherForm.Enabled = CallETeacherForm.Enabled = true; break;
                     }
                 case "SchoolsPage":
                     {
                         SchoolsGridView.DataSource = CoursesRequests.GetSchools();
-                        if (SchoolsGridView.RowCount == 0) CallDSchoolForm.Enabled = false; else CallDSchoolForm.Enabled = true; break;
+                        if (SchoolsGridView.RowCount == 0) CallDSchoolForm.Enabled = CallESchoolForm.Enabled = false; else CallDSchoolForm.Enabled = CallESchoolForm.Enabled = true; break;
                     }
                 case "SubjectsPage":
                     {
                         SubjectsGridView.DataSource = CoursesRequests.GetSubjects();
-                        if (SubjectsGridView.RowCount == 0) CallDSubjectForm.Enabled = false; else CallDSubjectForm.Enabled = true; break;
+                        if (SubjectsGridView.RowCount == 0) CallDSubjectForm.Enabled = CallESubjectForm.Enabled = false; else CallDSubjectForm.Enabled = CallESubjectForm.Enabled = true; break;
                     }
                 case "StudentsPage":
                     {
                         StudentsGridView.DataSource = CoursesRequests.GetStudentViews();
-                        if (StudentsGridView.RowCount == 0) CallDStudentForm.Enabled = false; else CallDStudentForm.Enabled = true; break;
+                        if (StudentsGridView.RowCount == 0) CallDStudentForm.Enabled = CallEStudentForm.Enabled = false; else CallDStudentForm.Enabled = CallEStudentForm.Enabled = true; break;
                     }
                 case "CoursesPage":
                     {
                         CoursesGridView.Columns[3].DefaultCellStyle.Format = "C";
                         CoursesGridView.DataSource = CoursesRequests.GetCourseViews();
-                        if (CoursesGridView.RowCount == 0) CallDCourseForm.Enabled = false; else CallDCourseForm.Enabled = true; break;
+                        if (CoursesGridView.RowCount == 0) CallDCourseForm.Enabled = CallECourseForm.Enabled = false; else CallDCourseForm.Enabled = CallECourseForm.Enabled = true; break;
                     }
                 default: break;
             }

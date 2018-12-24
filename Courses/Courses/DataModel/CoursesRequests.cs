@@ -696,5 +696,15 @@ namespace Courses.DataModel
             db.Dispose();
             return res;
         }
+
+        public static Topic GetTopic(int id)
+        {
+            CoursesEntities db = new CoursesEntities();
+            Topic res = db.Topics.ToList().Find(p => p.Id == id);
+            if (res != null)
+                res.Cours.ToString();
+            db.Dispose();
+            return res;
+        }
     }
 }

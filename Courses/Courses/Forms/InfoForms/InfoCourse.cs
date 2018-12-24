@@ -42,13 +42,13 @@ namespace Courses
                 case "TeachersPage":
                     {
                         TeachersGridView.DataSource = CoursesRequests.GetCourseTeachersViews(course.CoursesTeachers.ToList());
-                        if (TeachersGridView.RowCount == 0) CallDBTeacherForm.Enabled = false; else CallDBTeacherForm.Enabled = true;
+                        if (TeachersGridView.RowCount == 0) CallDBTeacherForm.Enabled = false; else CallDBTeacherForm.Enabled  = true;
                         break;
                     }
                 case "TopicsPage":
                     {
                         TopicsGridView.DataSource = CoursesRequests.GetTopics(course.Id);
-                        if (TopicsGridView.RowCount == 0) CallDTopicForm.Enabled = false; else CallDTopicForm.Enabled = true;
+                        if (TopicsGridView.RowCount == 0) CallDTopicForm.Enabled = CallETopicForm.Enabled = false; else CallDTopicForm.Enabled = CallETopicForm.Enabled = true;
                         break;
                     }
                 case "StudentsPage":
@@ -145,6 +145,27 @@ namespace Courses
             {
                 course = CoursesRequests.GetCourse(course.Id);
                 RefreshTab(tabControl.SelectedTab.Name);
+            }
+        }
+
+        private void CallEditForm_Click(object sender, EventArgs e)
+        {
+            string name = ((Button)sender).Name;
+            Enabled = false;
+            switch (name)
+            {
+                case "CallEStudentForm":
+                    {
+                        EditStudentForm editStudentForm = new EditStudentForm(this, (int)StudentsGridView.SelectedRows[0].Cells[0].Value);
+                        editStudentForm.Show();
+                        break;
+                    }
+                case "CallETopicForm":
+                    {
+                        EditTopicForm editTopicForm = new EditTopicForm(this,course.Id, (int)TopicsGridView.SelectedRows[0].Cells[0].Value);
+                        editTopicForm.Show();
+                        break;
+                    }
             }
         }
     }
