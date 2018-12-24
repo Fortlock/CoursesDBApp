@@ -167,6 +167,24 @@
     <Compile Include="Forms\InfoCourse.Designer.cs">
       <DependentUpon>InfoCourse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\InfoStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InfoStudent.Designer.cs">
+      <DependentUpon>InfoStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InfoSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InfoSubject.Designer.cs">
+      <DependentUpon>InfoSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InfoSchool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InfoSchool.Designer.cs">
+      <DependentUpon>InfoSchool.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\InfoTeacher.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +227,15 @@
     <EmbeddedResource Include="Forms\InfoCourse.resx">
       <DependentUpon>InfoCourse.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InfoStudent.resx">
+      <DependentUpon>InfoStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InfoSubject.resx">
+      <DependentUpon>InfoSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InfoSchool.resx">
+      <DependentUpon>InfoSchool.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\InfoTeacher.resx">
       <DependentUpon>InfoTeacher.cs</DependentUpon>
     </EmbeddedResource>
@@ -232,6 +259,7 @@
       <DependentUpon>CoursesContext.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Courses.DataModel.Course.datasource" />
     <None Include="Properties\DataSources\Courses.DataModel.CoursesStudentsView.datasource" />
     <None Include="Properties\DataSources\Courses.DataModel.CoursesTeachersView.datasource" />
     <None Include="Properties\DataSources\Courses.DataModel.CoursesView1.datasource" />

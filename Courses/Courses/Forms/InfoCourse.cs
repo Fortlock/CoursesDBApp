@@ -24,10 +24,15 @@ namespace Courses
 
         private void InfoCourse_Load(object sender, EventArgs e)
         {
-            subjectlabel.Text = course.Subject.Name;
-            durationlabel.Text = course.Duration.ToString();
-            costlabel.Text = course.Cost.ToString();
-            RefreshTab("TopicsPage");
+            if (course == null)
+                Close();
+            else
+            {
+                subjectlabel.Text = course.Subject.Name;
+                durationlabel.Text = course.Duration.ToString();
+                costlabel.Text = course.Cost.ToString();
+                RefreshTab("TopicsPage");
+            }
         }
 
         private void RefreshTab(string name)

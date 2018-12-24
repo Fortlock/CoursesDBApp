@@ -604,6 +604,16 @@ namespace Courses.DataModel
             return res;
         }
 
+        public static List<CoursesStudentsView> GetCourseStudentViews(int studentId)
+        {
+            List<CoursesStudentsView> res;
+            CoursesEntities db = new CoursesEntities();
+            res = new List<CoursesStudentsView>();
+            db.CoursesStudentsViews.Where(p => p.StudentId == studentId).ToList().ForEach(p => res.Add(p));
+            db.Dispose();
+            return res;
+        }
+
         public static List<CoursesTeachersView> GetCourseTeachersViews(List<CourseTeacher> courseTeachers = null)
         {
             List<CoursesTeachersView> res;
@@ -635,10 +645,13 @@ namespace Courses.DataModel
         {
             CoursesEntities db = new CoursesEntities();
             Course res = db.Courses.ToList().Find(p => p.Id == id);
-            res.Topics = res.Topics.ToList();
-            res.CoursesTeachers = res.CoursesTeachers.ToList();
-            res.CoursesStudents = res.CoursesStudents.ToList();
-            res.Subject.ToString();
+            if (res != null)
+            {
+                res.Topics = res.Topics.ToList();
+                res.CoursesTeachers = res.CoursesTeachers.ToList();
+                res.CoursesStudents = res.CoursesStudents.ToList();
+                res.Subject.ToString();
+            }
             db.Dispose();
             return res;
         }
@@ -647,7 +660,38 @@ namespace Courses.DataModel
         {
             CoursesEntities db = new CoursesEntities();
             Teacher res = db.Teachers.ToList().Find(p => p.Id == id);
-            res.CoursesTeachers = res.CoursesTeachers.ToList();
+            if (res != null)
+                res.CoursesTeachers = res.CoursesTeachers.ToList();
+            db.Dispose();
+            return res;
+        }
+
+        public static School GetSchool(int id)
+        {
+            CoursesEntities db = new CoursesEntities();
+            School res = db.Schools.ToList().Find(p => p.Id == id);
+            if (res!=null)
+                res.Students = res.Students.ToList();
+            db.Dispose();
+            return res;
+        }
+
+        public static Subject GetSubject(int id)
+        {
+            CoursesEntities db = new CoursesEntities();
+            Subject res = db.Subjects.ToList().Find(p => p.Id == id);
+            if (res != null)
+                res.Courses = res.Courses.ToList();
+            db.Dispose();
+            return res;
+        }
+
+        public static Student GetStudent(int id)
+        {
+            CoursesEntities db = new CoursesEntities();
+            Student res = db.Students.ToList().Find(p => p.Id == id);
+            if (res != null)
+                res.School.ToString();
             db.Dispose();
             return res;
         }

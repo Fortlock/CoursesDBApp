@@ -26,8 +26,14 @@ namespace Courses
 
         private void InfoTeacher_Load(object sender, EventArgs e)
         {
-            nameLabel.Text = CoursesRequests.GetTeacher(TeacherId).Name;
-            RefreshTab();
+            Teacher teacher = CoursesRequests.GetTeacher(TeacherId);
+            if (teacher == null)
+                Close();
+            else
+            {
+                nameLabel.Text = CoursesRequests.GetTeacher(TeacherId).Name;
+                RefreshTab();
+            }
         }
 
         private void RefreshTab()

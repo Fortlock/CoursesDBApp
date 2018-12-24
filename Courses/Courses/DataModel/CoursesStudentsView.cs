@@ -19,5 +19,8 @@ namespace Courses.DataModel
         public bool IsPaid { get; set; }
         public Nullable<int> SertificateNumber { get; set; }
         public int StudentId { get; set; }
+        public int Duration { get; set; }
+        public decimal Cost { get; set; }
+        public string Subject { get; set; }
     }
 }

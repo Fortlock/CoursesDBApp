@@ -188,6 +188,24 @@ namespace Courses
                         infoCourseForm.Show();
                         break;
                     }
+                case "SchoolsGridView":
+                    {
+                        InfoSchool infoSchool = new InfoSchool(this, (int)SchoolsGridView.SelectedRows[0].Cells[0].Value);
+                        infoSchool.Show();
+                        break;
+                    }
+                case "SubjectsGridView":
+                    {
+                        InfoSubject infoSubject = new InfoSubject(this, (int)SubjectsGridView.SelectedRows[0].Cells[0].Value);
+                        infoSubject.Show();
+                        break;
+                    }
+                case "StudentsGridView":
+                    {
+                        InfoStudent infoStudent = new InfoStudent(this, (int)StudentsGridView.SelectedRows[0].Cells[0].Value);
+                        infoStudent.Show();
+                        break;
+                    }
             }
             Enabled = false;
         }

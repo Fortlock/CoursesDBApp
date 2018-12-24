@@ -78,12 +78,18 @@
             <PropertyRef Name="StudentId" />
             <PropertyRef Name="Name" />
             <PropertyRef Name="IsPaid" />
+            <PropertyRef Name="Duration" />
+            <PropertyRef Name="Cost" />
+            <PropertyRef Name="Subject" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="StudentId" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="IsPaid" Type="bit" Nullable="false" />
           <Property Name="SertificateNumber" Type="int" />
+          <Property Name="Duration" Type="int" Nullable="false" />
+          <Property Name="Cost" Type="money" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "Courses.dbo.CoursesTeachersView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
@@ -273,7 +279,10 @@
     [CoursesStudentsView].[StudentId] AS [StudentId], 
     [CoursesStudentsView].[Name] AS [Name], 
     [CoursesStudentsView].[IsPaid] AS [IsPaid], 
-    [CoursesStudentsView].[SertificateNumber] AS [SertificateNumber]
+    [CoursesStudentsView].[SertificateNumber] AS [SertificateNumber], 
+    [CoursesStudentsView].[Duration] AS [Duration], 
+    [CoursesStudentsView].[Cost] AS [Cost], 
+    [CoursesStudentsView].[Subject] AS [Subject]
     FROM [dbo].[CoursesStudentsView] AS [CoursesStudentsView]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="CoursesTeachersView" EntityType="Self.CoursesTeachersView" store:Type="Views" store:Schema="dbo">
@@ -610,12 +619,18 @@
             <PropertyRef Name="Name" />
             <PropertyRef Name="IsPaid" />
             <PropertyRef Name="StudentId" />
+            <PropertyRef Name="Duration" />
+            <PropertyRef Name="Cost" />
+            <PropertyRef Name="Subject" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="IsPaid" Type="Boolean" Nullable="false" />
           <Property Name="SertificateNumber" Type="Int32" />
           <Property Name="StudentId" Type="Int32" Nullable="false" />
+          <Property Name="Duration" Type="Int32" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Subject" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -750,6 +765,9 @@
           <EntitySetMapping Name="CoursesStudentsViews">
             <EntityTypeMapping TypeName="CoursesModel.CoursesStudentsView">
               <MappingFragment StoreEntitySet="CoursesStudentsView">
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
                 <ScalarProperty Name="StudentId" ColumnName="StudentId" />
                 <ScalarProperty Name="SertificateNumber" ColumnName="SertificateNumber" />
                 <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />

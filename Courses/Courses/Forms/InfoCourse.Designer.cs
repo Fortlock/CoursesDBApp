@@ -48,21 +48,21 @@
             this.subjectlabel = new System.Windows.Forms.Label();
             this.durationlabel = new System.Windows.Forms.Label();
             this.costlabel = new System.Windows.Forms.Label();
-            this.StudentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coursDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.topicBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isPaidDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.sertificateNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coursesStudentsViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.coursesTeachersViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teacherIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coursesTeachersViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.coursesStudentsViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isPaidDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.sertificateNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.TopicsPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TopicsGridView)).BeginInit();
@@ -71,8 +71,8 @@
             this.StudentsPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StudentsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.topicBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coursesStudentsViewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coursesTeachersViewBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursesStudentsViewBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -299,14 +299,6 @@
             this.costlabel.TabIndex = 6;
             this.costlabel.Text = "label6";
             // 
-            // StudentId
-            // 
-            this.StudentId.DataPropertyName = "StudentId";
-            this.StudentId.HeaderText = "StudentId";
-            this.StudentId.Name = "StudentId";
-            this.StudentId.ReadOnly = true;
-            this.StudentId.Visible = false;
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -343,42 +335,6 @@
             // 
             this.topicBindingSource.DataSource = typeof(Courses.DataModel.Topic);
             // 
-            // idDataGridViewTextBoxColumn2
-            // 
-            this.idDataGridViewTextBoxColumn2.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn2.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn2.Name = "idDataGridViewTextBoxColumn2";
-            this.idDataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn2
-            // 
-            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
-            this.nameDataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // isPaidDataGridViewCheckBoxColumn
-            // 
-            this.isPaidDataGridViewCheckBoxColumn.DataPropertyName = "IsPaid";
-            this.isPaidDataGridViewCheckBoxColumn.HeaderText = "IsPaid";
-            this.isPaidDataGridViewCheckBoxColumn.Name = "isPaidDataGridViewCheckBoxColumn";
-            this.isPaidDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // sertificateNumberDataGridViewTextBoxColumn
-            // 
-            this.sertificateNumberDataGridViewTextBoxColumn.DataPropertyName = "SertificateNumber";
-            this.sertificateNumberDataGridViewTextBoxColumn.HeaderText = "SertificateNumber";
-            this.sertificateNumberDataGridViewTextBoxColumn.Name = "sertificateNumberDataGridViewTextBoxColumn";
-            this.sertificateNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // coursesStudentsViewBindingSource
-            // 
-            this.coursesStudentsViewBindingSource.DataSource = typeof(Courses.DataModel.CoursesStudentsView);
-            // 
-            // coursesTeachersViewBindingSource
-            // 
-            this.coursesTeachersViewBindingSource.DataSource = typeof(Courses.DataModel.CoursesTeachersView);
-            // 
             // idDataGridViewTextBoxColumn1
             // 
             this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
@@ -402,6 +358,55 @@
             this.nameDataGridViewTextBoxColumn1.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
             this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // coursesTeachersViewBindingSource
+            // 
+            this.coursesTeachersViewBindingSource.DataSource = typeof(Courses.DataModel.CoursesTeachersView);
+            // 
+            // coursesStudentsViewBindingSource
+            // 
+            this.coursesStudentsViewBindingSource.DataSource = typeof(Courses.DataModel.CoursesStudentsView);
+            // 
+            // idDataGridViewTextBoxColumn2
+            // 
+            this.idDataGridViewTextBoxColumn2.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn2.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn2.Name = "idDataGridViewTextBoxColumn2";
+            this.idDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // StudentId
+            // 
+            this.StudentId.DataPropertyName = "StudentId";
+            this.StudentId.HeaderText = "StudentId";
+            this.StudentId.Name = "StudentId";
+            this.StudentId.ReadOnly = true;
+            this.StudentId.Visible = false;
+            // 
+            // nameDataGridViewTextBoxColumn2
+            // 
+            this.nameDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
+            this.nameDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // isPaidDataGridViewCheckBoxColumn
+            // 
+            this.isPaidDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.isPaidDataGridViewCheckBoxColumn.DataPropertyName = "IsPaid";
+            this.isPaidDataGridViewCheckBoxColumn.HeaderText = "IsPaid";
+            this.isPaidDataGridViewCheckBoxColumn.Name = "isPaidDataGridViewCheckBoxColumn";
+            this.isPaidDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.isPaidDataGridViewCheckBoxColumn.Width = 42;
+            // 
+            // sertificateNumberDataGridViewTextBoxColumn
+            // 
+            this.sertificateNumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.sertificateNumberDataGridViewTextBoxColumn.DataPropertyName = "SertificateNumber";
+            this.sertificateNumberDataGridViewTextBoxColumn.HeaderText = "SertificateNumber";
+            this.sertificateNumberDataGridViewTextBoxColumn.Name = "sertificateNumberDataGridViewTextBoxColumn";
+            this.sertificateNumberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // InfoCourseForm
             // 
@@ -428,8 +433,8 @@
             this.StudentsPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.StudentsGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.topicBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coursesStudentsViewBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coursesTeachersViewBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursesStudentsViewBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -462,14 +467,14 @@
         private System.Windows.Forms.Button CallDBTeacherForm;
         private System.Windows.Forms.Button CallDBStudentForm;
         private System.Windows.Forms.BindingSource coursesStudentsViewBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn teacherIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.BindingSource coursesTeachersViewBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentId;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isPaidDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sertificateNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn teacherIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.BindingSource coursesTeachersViewBindingSource;
     }
 }
