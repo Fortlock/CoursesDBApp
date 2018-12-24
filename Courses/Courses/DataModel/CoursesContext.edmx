@@ -30,7 +30,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CourseId" Type="int" Nullable="false" />
-          <Property Name="TeacherId" Type="int" Nullable="false" />
+          <Property Name="TeacherId" Type="int" />
         </EntityType>
         <EntityType Name="Schools">
           <Key>
@@ -196,9 +196,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CoursesTeachers_Teachers">
-          <End Role="Teachers" Type="Self.Teachers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="0..1" />
           <End Role="CoursesTeachers" Type="Self.CoursesTeachers" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Teachers">
@@ -380,7 +378,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CourseId" Type="Int32" Nullable="false" />
-          <Property Name="TeacherId" Type="Int32" Nullable="false" />
+          <Property Name="TeacherId" Type="Int32" />
           <NavigationProperty Name="Cours" Relationship="Self.FK_CoursesTeachers_Courses" FromRole="CoursesTeachers" ToRole="Courses" />
           <NavigationProperty Name="Teacher" Relationship="Self.FK_CoursesTeachers_Teachers" FromRole="CoursesTeachers" ToRole="Teachers" />
         </EntityType>
@@ -495,10 +493,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CoursesTeachers_Teachers">
-          <End Role="Teachers" Type="Self.Teacher" Multiplicity="1">
-            <OnDelete Action="Cascade" />
+          <End Role="Teachers" Type="Self.Teacher" Multiplicity="0..1">
           </End>
-          <End Role="CoursesTeachers" Type="CoursesModel.CourseTeacher" Multiplicity="*" />
+          <End Role="CoursesTeachers" Type="CoursesModel.CourseTeacher" Multiplicity="*" >
+          </End>
           <ReferentialConstraint>
             <Principal Role="Teachers">
               <PropertyRef Name="Id" />

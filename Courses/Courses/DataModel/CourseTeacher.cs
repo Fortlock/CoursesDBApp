@@ -16,7 +16,7 @@ namespace Courses.DataModel
     {
         public int Id { get; set; }
         public int CourseId { get; set; }
-        public int TeacherId { get; set; }
+        public Nullable<int> TeacherId { get; set; }
     
         public virtual Course Cours { get; set; }
         public virtual Teacher Teacher { get; set; }
