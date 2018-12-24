@@ -209,5 +209,44 @@ namespace Courses
             }
             Enabled = false;
         }
+
+        private void CallEditForm_Click(object sender, EventArgs e)
+        {
+            string name = ((Button)sender).Name;
+            Enabled = false;
+            switch (name)
+            {
+                case "CallETeacherForm":
+                    {
+                        EditTeacherForm editTeacherForm = new EditTeacherForm(this, (int)TeachersGridView.SelectedRows[0].Cells[0].Value);
+                        editTeacherForm.Show();
+                        break;
+                    }
+                case "CallESchoolForm":
+                    {
+                        EditSchoolForm editSchoolForm = new EditSchoolForm(this, (int)SchoolsGridView.SelectedRows[0].Cells[0].Value);
+                        editSchoolForm.Show();
+                        break;
+                    }
+                case "CallESubjectForm":
+                    {
+                        EditTeacherForm editTeacherForm = new EditTeacherForm(this, (int)SubjectsGridView.SelectedRows[0].Cells[0].Value);
+                        editTeacherForm.Show();
+                        break;
+                    }
+                case "CallEStudentForm":
+                    {
+                        EditTeacherForm editTeacherForm = new EditTeacherForm(this, (int)StudentsGridView.SelectedRows[0].Cells[0].Value);
+                        editTeacherForm.Show();
+                        break;
+                    }
+                case "CallDCourseForm":
+                    {
+                        EditTeacherForm editTeacherForm = new EditTeacherForm(this, (int)CoursesGridView.SelectedRows[0].Cells[0].Value);
+                        editTeacherForm.Show();
+                        break;
+                    }
+            }
+        }
     }
 }
