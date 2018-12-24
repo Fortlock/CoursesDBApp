@@ -32,7 +32,6 @@
             this.CoursesGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
-            this.coursesStudentsViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isPaidDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -41,12 +40,15 @@
             this.durationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subjectDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coursesStudentsViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.CoursesGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coursesStudentsViewBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // CoursesGridView
             // 
+            this.CoursesGridView.AllowUserToAddRows = false;
+            this.CoursesGridView.AllowUserToDeleteRows = false;
             this.CoursesGridView.AutoGenerateColumns = false;
             this.CoursesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CoursesGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -60,9 +62,13 @@
             this.subjectDataGridViewTextBoxColumn});
             this.CoursesGridView.DataSource = this.coursesStudentsViewBindingSource;
             this.CoursesGridView.Location = new System.Drawing.Point(12, 29);
+            this.CoursesGridView.MultiSelect = false;
             this.CoursesGridView.Name = "CoursesGridView";
+            this.CoursesGridView.ReadOnly = true;
+            this.CoursesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.CoursesGridView.Size = new System.Drawing.Size(775, 409);
             this.CoursesGridView.TabIndex = 0;
+            this.CoursesGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CoursesGridView_CellDoubleClick);
             // 
             // label1
             // 
@@ -82,15 +88,12 @@
             this.nameLabel.TabIndex = 2;
             this.nameLabel.Text = "label2";
             // 
-            // coursesStudentsViewBindingSource
-            // 
-            this.coursesStudentsViewBindingSource.DataSource = typeof(Courses.DataModel.CoursesStudentsView);
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
             this.idDataGridViewTextBoxColumn.Visible = false;
             // 
             // nameDataGridViewTextBoxColumn
@@ -98,6 +101,7 @@
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
             this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             this.nameDataGridViewTextBoxColumn.Visible = false;
             // 
             // isPaidDataGridViewCheckBoxColumn
@@ -106,6 +110,7 @@
             this.isPaidDataGridViewCheckBoxColumn.DataPropertyName = "IsPaid";
             this.isPaidDataGridViewCheckBoxColumn.HeaderText = "IsPaid";
             this.isPaidDataGridViewCheckBoxColumn.Name = "isPaidDataGridViewCheckBoxColumn";
+            this.isPaidDataGridViewCheckBoxColumn.ReadOnly = true;
             this.isPaidDataGridViewCheckBoxColumn.Width = 42;
             // 
             // sertificateNumberDataGridViewTextBoxColumn
@@ -114,12 +119,14 @@
             this.sertificateNumberDataGridViewTextBoxColumn.DataPropertyName = "SertificateNumber";
             this.sertificateNumberDataGridViewTextBoxColumn.HeaderText = "SertificateNumber";
             this.sertificateNumberDataGridViewTextBoxColumn.Name = "sertificateNumberDataGridViewTextBoxColumn";
+            this.sertificateNumberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // studentIdDataGridViewTextBoxColumn
             // 
             this.studentIdDataGridViewTextBoxColumn.DataPropertyName = "StudentId";
             this.studentIdDataGridViewTextBoxColumn.HeaderText = "StudentId";
             this.studentIdDataGridViewTextBoxColumn.Name = "studentIdDataGridViewTextBoxColumn";
+            this.studentIdDataGridViewTextBoxColumn.ReadOnly = true;
             this.studentIdDataGridViewTextBoxColumn.Visible = false;
             // 
             // durationDataGridViewTextBoxColumn
@@ -128,6 +135,7 @@
             this.durationDataGridViewTextBoxColumn.DataPropertyName = "Duration";
             this.durationDataGridViewTextBoxColumn.HeaderText = "Duration";
             this.durationDataGridViewTextBoxColumn.Name = "durationDataGridViewTextBoxColumn";
+            this.durationDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // costDataGridViewTextBoxColumn
             // 
@@ -135,6 +143,7 @@
             this.costDataGridViewTextBoxColumn.DataPropertyName = "Cost";
             this.costDataGridViewTextBoxColumn.HeaderText = "Cost";
             this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
+            this.costDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // subjectDataGridViewTextBoxColumn
             // 
@@ -142,6 +151,11 @@
             this.subjectDataGridViewTextBoxColumn.DataPropertyName = "Subject";
             this.subjectDataGridViewTextBoxColumn.HeaderText = "Subject";
             this.subjectDataGridViewTextBoxColumn.Name = "subjectDataGridViewTextBoxColumn";
+            this.subjectDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // coursesStudentsViewBindingSource
+            // 
+            this.coursesStudentsViewBindingSource.DataSource = typeof(Courses.DataModel.CoursesStudentsView);
             // 
             // InfoStudent
             // 
@@ -152,9 +166,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CoursesGridView);
             this.Name = "InfoStudent";
-            this.Text = "InfoTeacher";
+            this.Text = "InfoStudent";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Info_FormClosed);
             this.Load += new System.EventHandler(this.Info_Load);
+            this.EnabledChanged += new System.EventHandler(this.InfoStudent_EnabledChanged);
             ((System.ComponentModel.ISupportInitialize)(this.CoursesGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coursesStudentsViewBindingSource)).EndInit();
             this.ResumeLayout(false);

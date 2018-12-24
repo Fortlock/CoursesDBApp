@@ -46,5 +46,18 @@ namespace Courses
                 RefreshTab();
             }
         }
+
+        private void InfoStudent_EnabledChanged(object sender, EventArgs e)
+        {
+            if (Enabled)
+                RefreshTab();
+        }
+
+        private void CoursesGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Enabled = false;
+            InfoCourseForm infoCourseForm = new InfoCourseForm(this, (int)CoursesGridView.SelectedRows[0].Cells[3].Value);
+            infoCourseForm.Show();
+        }
     }
 }

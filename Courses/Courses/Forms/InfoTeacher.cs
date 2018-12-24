@@ -39,7 +39,7 @@ namespace Courses
         private void RefreshTab()
         {
             CoursesGridView.DataSource = CoursesRequests.GetCourseTeachersViews(TeacherId);
-            //if (TeachersGridView.RowCount == 0) CallDBTeacherForm.Enabled = false; else CallDBTeacherForm.Enabled = true;
+            if (CoursesGridView.RowCount == 0) CallDBTeacherForm.Enabled = false; else CallDBTeacherForm.Enabled = true;
         }
 
         private void InfoTeacher_FormClosed(object sender, FormClosedEventArgs e)
@@ -47,6 +47,31 @@ namespace Courses
             parentForm.Enabled = true;
         }
 
+        private void InfoTeacher_EnabledChanged(object sender, EventArgs e)
+        {
+            if (Enabled)
+                RefreshTab();
+        }
 
+        private void CoursesGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Enabled = false;
+            InfoCourseForm infoCourseForm = new InfoCourseForm(this, (int)CoursesGridView.SelectedRows[0].Cells[3].Value);
+            infoCourseForm.Show();
+        }
+
+        private void CallDBTeacherForm_Click(object sender, EventArgs e)
+        {
+            DialogResult res;
+            Enabled = false;
+            res = MessageBox.Show(
+                            "Are you sure?",
+                            "Delete bind course",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning);
+            if (res == DialogResult.Yes)
+                CoursesRequests.DelBindTeacherToCourse((int)(CoursesGridView.SelectedRows[0].Cells[0].Value));
+            Enabled = true;
+        }
     }
 }
