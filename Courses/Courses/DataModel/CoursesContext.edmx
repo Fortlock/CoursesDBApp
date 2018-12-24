@@ -76,6 +76,7 @@
           <Key>
             <PropertyRef Name="Id" />
             <PropertyRef Name="StudentId" />
+            <PropertyRef Name="CourseId" />
             <PropertyRef Name="Name" />
             <PropertyRef Name="IsPaid" />
             <PropertyRef Name="Duration" />
@@ -84,6 +85,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="StudentId" Type="int" Nullable="false" />
+          <Property Name="CourseId" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="IsPaid" Type="bit" Nullable="false" />
           <Property Name="SertificateNumber" Type="int" />
@@ -277,6 +279,7 @@
             <DefiningQuery>SELECT 
     [CoursesStudentsView].[Id] AS [Id], 
     [CoursesStudentsView].[StudentId] AS [StudentId], 
+    [CoursesStudentsView].[CourseId] AS [CourseId], 
     [CoursesStudentsView].[Name] AS [Name], 
     [CoursesStudentsView].[IsPaid] AS [IsPaid], 
     [CoursesStudentsView].[SertificateNumber] AS [SertificateNumber], 
@@ -622,6 +625,7 @@
             <PropertyRef Name="Duration" />
             <PropertyRef Name="Cost" />
             <PropertyRef Name="Subject" />
+            <PropertyRef Name="CourseId" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -631,6 +635,7 @@
           <Property Name="Duration" Type="Int32" Nullable="false" />
           <Property Name="Cost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <Property Name="Subject" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CourseId" Type="Int32" Nullable="false" />
         </EntityType>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -765,6 +770,7 @@
           <EntitySetMapping Name="CoursesStudentsViews">
             <EntityTypeMapping TypeName="CoursesModel.CoursesStudentsView">
               <MappingFragment StoreEntitySet="CoursesStudentsView">
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
                 <ScalarProperty Name="Subject" ColumnName="Subject" />
                 <ScalarProperty Name="Cost" ColumnName="Cost" />
                 <ScalarProperty Name="Duration" ColumnName="Duration" />

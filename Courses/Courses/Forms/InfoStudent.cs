@@ -27,7 +27,7 @@ namespace Courses
         private void RefreshTab()
         {
             CoursesGridView.DataSource = CoursesRequests.GetCourseStudentViews(StudentId);
-            //if (TeachersGridView.RowCount == 0) CallDBTeacherForm.Enabled = false; else CallDBTeacherForm.Enabled = true;
+            if (CoursesGridView.RowCount == 0) CallDBStudentForm.Enabled = false; else CallDBStudentForm.Enabled = true;
         }
 
         private void Info_FormClosed(object sender, FormClosedEventArgs e)
@@ -56,8 +56,22 @@ namespace Courses
         private void CoursesGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Enabled = false;
-            InfoCourseForm infoCourseForm = new InfoCourseForm(this, (int)CoursesGridView.SelectedRows[0].Cells[3].Value);
+            InfoCourseForm infoCourseForm = new InfoCourseForm(this, (int)CoursesGridView.SelectedRows[0].Cells[1].Value);
             infoCourseForm.Show();
+        }
+
+        private void CallDBStudentForm_Click(object sender, EventArgs e)
+        {
+            DialogResult res;
+            Enabled = false;
+            res = MessageBox.Show(
+                            "Are you sure?",
+                            "Delete bind course",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning);
+            if (res == DialogResult.Yes)
+                CoursesRequests.DelBindStudentToCourse((int)(CoursesGridView.SelectedRows[0].Cells[0].Value));
+            Enabled = true;
         }
     }
 }

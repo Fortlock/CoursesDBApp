@@ -22,5 +22,6 @@ namespace Courses.DataModel
         public int Duration { get; set; }
         public decimal Cost { get; set; }
         public string Subject { get; set; }
+        public int CourseId { get; set; }
     }
 }

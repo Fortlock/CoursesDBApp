@@ -32,6 +32,7 @@
             this.CoursesGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
+            this.CourseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isPaidDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -41,6 +42,7 @@
             this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subjectDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coursesStudentsViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.CallDBStudentForm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CoursesGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coursesStudentsViewBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -53,6 +55,7 @@
             this.CoursesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CoursesGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
+            this.CourseId,
             this.nameDataGridViewTextBoxColumn,
             this.isPaidDataGridViewCheckBoxColumn,
             this.sertificateNumberDataGridViewTextBoxColumn,
@@ -66,7 +69,7 @@
             this.CoursesGridView.Name = "CoursesGridView";
             this.CoursesGridView.ReadOnly = true;
             this.CoursesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.CoursesGridView.Size = new System.Drawing.Size(775, 409);
+            this.CoursesGridView.Size = new System.Drawing.Size(775, 380);
             this.CoursesGridView.TabIndex = 0;
             this.CoursesGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CoursesGridView_CellDoubleClick);
             // 
@@ -87,6 +90,14 @@
             this.nameLabel.Size = new System.Drawing.Size(35, 13);
             this.nameLabel.TabIndex = 2;
             this.nameLabel.Text = "label2";
+            // 
+            // CourseId
+            // 
+            this.CourseId.DataPropertyName = "CourseId";
+            this.CourseId.HeaderText = "CourseId";
+            this.CourseId.Name = "CourseId";
+            this.CourseId.ReadOnly = true;
+            this.CourseId.Visible = false;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -157,11 +168,22 @@
             // 
             this.coursesStudentsViewBindingSource.DataSource = typeof(Courses.DataModel.CoursesStudentsView);
             // 
+            // CallDBStudentForm
+            // 
+            this.CallDBStudentForm.Location = new System.Drawing.Point(13, 415);
+            this.CallDBStudentForm.Name = "CallDBStudentForm";
+            this.CallDBStudentForm.Size = new System.Drawing.Size(125, 23);
+            this.CallDBStudentForm.TabIndex = 3;
+            this.CallDBStudentForm.Text = "Delete bind";
+            this.CallDBStudentForm.UseVisualStyleBackColor = true;
+            this.CallDBStudentForm.Click += new System.EventHandler(this.CallDBStudentForm_Click);
+            // 
             // InfoStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.CallDBStudentForm);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CoursesGridView);
@@ -182,7 +204,9 @@
         private System.Windows.Forms.DataGridView CoursesGridView;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.BindingSource coursesStudentsViewBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CourseId;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isPaidDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sertificateNumberDataGridViewTextBoxColumn;
@@ -190,6 +214,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn durationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn subjectDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource coursesStudentsViewBindingSource;
+        private System.Windows.Forms.Button CallDBStudentForm;
     }
 }
