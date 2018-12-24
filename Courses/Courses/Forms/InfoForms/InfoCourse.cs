@@ -54,7 +54,7 @@ namespace Courses
                 case "StudentsPage":
                     {
                         StudentsGridView.DataSource = CoursesRequests.GetCourseStudentViews(course.CoursesStudents.ToList());
-                        if (StudentsGridView.RowCount == 0) CallDBStudentForm.Enabled = false; else CallDBStudentForm.Enabled = true;
+                        if (StudentsGridView.RowCount == 0) CallDBStudentForm.Enabled = CallEBStudentForm.Enabled = false; else CallDBStudentForm.Enabled = CallEBStudentForm.Enabled = true;
                         break;
                     }
                 default: break;
@@ -154,9 +154,9 @@ namespace Courses
             Enabled = false;
             switch (name)
             {
-                case "CallEStudentForm":
+                case "CallEBStudentForm":
                     {
-                        EditStudentForm editStudentForm = new EditStudentForm(this, (int)StudentsGridView.SelectedRows[0].Cells[0].Value);
+                        EditBindStudent editStudentForm = new EditBindStudent(this, (int)StudentsGridView.SelectedRows[0].Cells[0].Value);
                         editStudentForm.Show();
                         break;
                     }

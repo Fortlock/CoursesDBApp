@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.TopicsPage = new System.Windows.Forms.TabPage();
+            this.CallETopicForm = new System.Windows.Forms.Button();
             this.CallDTopicForm = new System.Windows.Forms.Button();
             this.CallNTopicForm = new System.Windows.Forms.Button();
             this.TopicsGridView = new System.Windows.Forms.DataGridView();
@@ -63,7 +64,7 @@
             this.subjectlabel = new System.Windows.Forms.Label();
             this.durationlabel = new System.Windows.Forms.Label();
             this.costlabel = new System.Windows.Forms.Label();
-            this.CallETopicForm = new System.Windows.Forms.Button();
+            this.CallEBStudentForm = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.TopicsPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TopicsGridView)).BeginInit();
@@ -101,6 +102,16 @@
             this.TopicsPage.TabIndex = 0;
             this.TopicsPage.Text = "Topics";
             this.TopicsPage.UseVisualStyleBackColor = true;
+            // 
+            // CallETopicForm
+            // 
+            this.CallETopicForm.Location = new System.Drawing.Point(138, 246);
+            this.CallETopicForm.Name = "CallETopicForm";
+            this.CallETopicForm.Size = new System.Drawing.Size(125, 23);
+            this.CallETopicForm.TabIndex = 3;
+            this.CallETopicForm.Text = "Edit topic";
+            this.CallETopicForm.UseVisualStyleBackColor = true;
+            this.CallETopicForm.Click += new System.EventHandler(this.CallEditForm_Click);
             // 
             // CallDTopicForm
             // 
@@ -260,6 +271,7 @@
             // 
             // StudentsPage
             // 
+            this.StudentsPage.Controls.Add(this.CallEBStudentForm);
             this.StudentsPage.Controls.Add(this.CallDBStudentForm);
             this.StudentsPage.Controls.Add(this.CallBStudentForm);
             this.StudentsPage.Controls.Add(this.StudentsGridView);
@@ -272,7 +284,7 @@
             // 
             // CallDBStudentForm
             // 
-            this.CallDBStudentForm.Location = new System.Drawing.Point(137, 246);
+            this.CallDBStudentForm.Location = new System.Drawing.Point(268, 246);
             this.CallDBStudentForm.Name = "CallDBStudentForm";
             this.CallDBStudentForm.Size = new System.Drawing.Size(125, 23);
             this.CallDBStudentForm.TabIndex = 2;
@@ -410,15 +422,15 @@
             this.costlabel.TabIndex = 6;
             this.costlabel.Text = "label6";
             // 
-            // CallETopicForm
+            // CallEBStudentForm
             // 
-            this.CallETopicForm.Location = new System.Drawing.Point(138, 246);
-            this.CallETopicForm.Name = "CallETopicForm";
-            this.CallETopicForm.Size = new System.Drawing.Size(125, 23);
-            this.CallETopicForm.TabIndex = 3;
-            this.CallETopicForm.Text = "Edit topic";
-            this.CallETopicForm.UseVisualStyleBackColor = true;
-            this.CallETopicForm.Click += new System.EventHandler(this.CallEditForm_Click);
+            this.CallEBStudentForm.Location = new System.Drawing.Point(137, 246);
+            this.CallEBStudentForm.Name = "CallEBStudentForm";
+            this.CallEBStudentForm.Size = new System.Drawing.Size(125, 23);
+            this.CallEBStudentForm.TabIndex = 3;
+            this.CallEBStudentForm.Text = "Edit";
+            this.CallEBStudentForm.UseVisualStyleBackColor = true;
+            this.CallEBStudentForm.Click += new System.EventHandler(this.CallEditForm_Click);
             // 
             // InfoCourseForm
             // 
@@ -489,5 +501,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn isPaidDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sertificateNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button CallETopicForm;
+        private System.Windows.Forms.Button CallEBStudentForm;
     }
 }

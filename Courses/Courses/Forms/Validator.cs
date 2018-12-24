@@ -25,9 +25,14 @@ namespace Courses
                 res = true;
                 int i = 0;
                 while (i < 9 && res)
+                {
                     if (sertificateNumber[i] < '0' || sertificateNumber[i] > '9')
                         res = false;
+                    i++;
+                }
             }
+            if (sertificateNumber.Length == 0)
+                res = true;
             return res;
         }
 

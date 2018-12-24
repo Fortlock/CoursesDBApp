@@ -495,7 +495,7 @@ namespace Courses.DataModel
 
         //edit manytomany db
 
-        public static CourseStudent EditBindStudentToCourse(int id, bool isPaid, int sertificateNumber)
+        public static CourseStudent EditBindStudentToCourse(int id, bool isPaid, int? sertificateNumber)
         {
             CoursesEntities db = new CoursesEntities();
             CourseStudent courseStudent = db.CourseStudents.Find(id);
@@ -703,6 +703,20 @@ namespace Courses.DataModel
             Topic res = db.Topics.ToList().Find(p => p.Id == id);
             if (res != null)
                 res.Cours.ToString();
+            db.Dispose();
+            return res;
+        }
+
+        public static CourseStudent GetCourseStudent(int id)
+        {
+            CoursesEntities db = new CoursesEntities();
+            CourseStudent res = db.CourseStudents.ToList().Find(p => p.Id == id);
+            if (res != null)
+            {
+                res.Cours.ToString();
+                res.Student.ToString();
+            }
+                
             db.Dispose();
             return res;
         }
