@@ -155,6 +155,7 @@
             this.TeachersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.TeachersGridView.Size = new System.Drawing.Size(767, 367);
             this.TeachersGridView.TabIndex = 0;
+            this.TeachersGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridView_CellDoubleClick);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -235,6 +236,7 @@
             this.SchoolsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.SchoolsGridView.Size = new System.Drawing.Size(767, 367);
             this.SchoolsGridView.TabIndex = 0;
+            this.SchoolsGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridView_CellDoubleClick);
             // 
             // idDataGridViewTextBoxColumn1
             // 
@@ -314,6 +316,7 @@
             this.SubjectsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.SubjectsGridView.Size = new System.Drawing.Size(767, 367);
             this.SubjectsGridView.TabIndex = 0;
+            this.SubjectsGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridView_CellDoubleClick);
             // 
             // idDataGridViewTextBoxColumn2
             // 
@@ -394,6 +397,7 @@
             this.StudentsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.StudentsGridView.Size = new System.Drawing.Size(767, 367);
             this.StudentsGridView.TabIndex = 0;
+            this.StudentsGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridView_CellDoubleClick);
             // 
             // idDataGridViewTextBoxColumn3
             // 
@@ -482,7 +486,7 @@
             this.CoursesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.CoursesGridView.Size = new System.Drawing.Size(767, 367);
             this.CoursesGridView.TabIndex = 0;
-            this.CoursesGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CoursesGridView_CellDoubleClick);
+            this.CoursesGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridView_CellDoubleClick);
             // 
             // idDataGridViewTextBoxColumn4
             // 

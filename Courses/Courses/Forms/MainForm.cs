@@ -170,9 +170,9 @@ namespace Courses
                 RefreshTab(tabControl.SelectedTab.Name);
         }
 
-        private void CoursesGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void GridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            InfoCourseForm infoCourseForm = new InfoCourseForm(this,(int)CoursesGridView.SelectedRows[0].Cells[0].Value);
+            InfoCourseForm infoCourseForm = new InfoCourseForm(this, (int)CoursesGridView.SelectedRows[0].Cells[0].Value);
             infoCourseForm.Show();
             Enabled = false;
         }
