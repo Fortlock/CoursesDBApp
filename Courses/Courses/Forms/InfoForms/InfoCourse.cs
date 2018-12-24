@@ -30,7 +30,7 @@ namespace Courses
             {
                 subjectlabel.Text = course.Subject.Name;
                 durationlabel.Text = course.Duration.ToString();
-                costlabel.Text = course.Cost.ToString();
+                costlabel.Text = course.Cost.ToString("C");
                 RefreshTab("TopicsPage");
             }
         }

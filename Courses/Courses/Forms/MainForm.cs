@@ -50,6 +50,7 @@ namespace Courses
                     }
                 case "CoursesPage":
                     {
+                        CoursesGridView.Columns[3].DefaultCellStyle.Format = "C";
                         CoursesGridView.DataSource = CoursesRequests.GetCourseViews();
                         if (CoursesGridView.RowCount == 0) CallDCourseForm.Enabled = false; else CallDCourseForm.Enabled = true; break;
                     }
@@ -230,20 +231,20 @@ namespace Courses
                     }
                 case "CallESubjectForm":
                     {
-                        EditTeacherForm editTeacherForm = new EditTeacherForm(this, (int)SubjectsGridView.SelectedRows[0].Cells[0].Value);
-                        editTeacherForm.Show();
+                        EditSubjectForm editSubjectForm = new EditSubjectForm(this, (int)SubjectsGridView.SelectedRows[0].Cells[0].Value);
+                        editSubjectForm.Show();
                         break;
                     }
                 case "CallEStudentForm":
                     {
-                        EditTeacherForm editTeacherForm = new EditTeacherForm(this, (int)StudentsGridView.SelectedRows[0].Cells[0].Value);
-                        editTeacherForm.Show();
+                        EditStudentForm editStudentForm = new EditStudentForm(this, (int)StudentsGridView.SelectedRows[0].Cells[0].Value);
+                        editStudentForm.Show();
                         break;
                     }
-                case "CallDCourseForm":
+                case "CallECourseForm":
                     {
-                        EditTeacherForm editTeacherForm = new EditTeacherForm(this, (int)CoursesGridView.SelectedRows[0].Cells[0].Value);
-                        editTeacherForm.Show();
+                        EditCourseForm editCourseForm = new EditCourseForm(this, (int)CoursesGridView.SelectedRows[0].Cells[0].Value);
+                        editCourseForm.Show();
                         break;
                     }
             }

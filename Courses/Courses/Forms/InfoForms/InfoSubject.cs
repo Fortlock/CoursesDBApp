@@ -26,6 +26,7 @@ namespace Courses
 
         private void RefreshTab()
         {
+            CoursesGridView.Columns[2].DefaultCellStyle.Format = "C";
             CoursesGridView.DataSource = subject.Courses;
             //if (TeachersGridView.RowCount == 0) CallDBTeacherForm.Enabled = false; else CallDBTeacherForm.Enabled = true;
         }

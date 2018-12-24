@@ -51,6 +51,9 @@
             this.CallNCourseForm = new System.Windows.Forms.Button();
             this.CoursesGridView = new System.Windows.Forms.DataGridView();
             this.CallETeacherForm = new System.Windows.Forms.Button();
+            this.CallESchoolForm = new System.Windows.Forms.Button();
+            this.CallESubjectForm = new System.Windows.Forms.Button();
+            this.CallEStudentForm = new System.Windows.Forms.Button();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coursesTeachersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,9 +76,7 @@
             this.durationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.CallESchoolForm = new System.Windows.Forms.Button();
-            this.CallESubjectForm = new System.Windows.Forms.Button();
-            this.CallEStudentForm = new System.Windows.Forms.Button();
+            this.CallECourseForm = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.TeachersPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TeachersGridView)).BeginInit();
@@ -325,6 +326,7 @@
             // 
             // CoursesPage
             // 
+            this.CoursesPage.Controls.Add(this.CallECourseForm);
             this.CoursesPage.Controls.Add(this.CallDCourseForm);
             this.CoursesPage.Controls.Add(this.CallNCourseForm);
             this.CoursesPage.Controls.Add(this.CoursesGridView);
@@ -337,7 +339,7 @@
             // 
             // CallDCourseForm
             // 
-            this.CallDCourseForm.Location = new System.Drawing.Point(135, 373);
+            this.CallDCourseForm.Location = new System.Drawing.Point(266, 373);
             this.CallDCourseForm.Name = "CallDCourseForm";
             this.CallDCourseForm.Size = new System.Drawing.Size(125, 23);
             this.CallDCourseForm.TabIndex = 2;
@@ -385,6 +387,36 @@
             this.CallETeacherForm.Text = "Edit teacher";
             this.CallETeacherForm.UseVisualStyleBackColor = true;
             this.CallETeacherForm.Click += new System.EventHandler(this.CallEditForm_Click);
+            // 
+            // CallESchoolForm
+            // 
+            this.CallESchoolForm.Location = new System.Drawing.Point(134, 373);
+            this.CallESchoolForm.Name = "CallESchoolForm";
+            this.CallESchoolForm.Size = new System.Drawing.Size(125, 23);
+            this.CallESchoolForm.TabIndex = 3;
+            this.CallESchoolForm.Text = "Edit school";
+            this.CallESchoolForm.UseVisualStyleBackColor = true;
+            this.CallESchoolForm.Click += new System.EventHandler(this.CallEditForm_Click);
+            // 
+            // CallESubjectForm
+            // 
+            this.CallESubjectForm.Location = new System.Drawing.Point(134, 373);
+            this.CallESubjectForm.Name = "CallESubjectForm";
+            this.CallESubjectForm.Size = new System.Drawing.Size(125, 23);
+            this.CallESubjectForm.TabIndex = 3;
+            this.CallESubjectForm.Text = "Edit subject";
+            this.CallESubjectForm.UseVisualStyleBackColor = true;
+            this.CallESubjectForm.Click += new System.EventHandler(this.CallEditForm_Click);
+            // 
+            // CallEStudentForm
+            // 
+            this.CallEStudentForm.Location = new System.Drawing.Point(135, 373);
+            this.CallEStudentForm.Name = "CallEStudentForm";
+            this.CallEStudentForm.Size = new System.Drawing.Size(125, 23);
+            this.CallEStudentForm.TabIndex = 3;
+            this.CallEStudentForm.Text = "Edit student";
+            this.CallEStudentForm.UseVisualStyleBackColor = true;
+            this.CallEStudentForm.Click += new System.EventHandler(this.CallEditForm_Click);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -542,34 +574,15 @@
             // 
             this.courseViewBindingSource.DataSource = typeof(Courses.DataModel.CourseView);
             // 
-            // CallESchoolForm
+            // CallECourseForm
             // 
-            this.CallESchoolForm.Location = new System.Drawing.Point(134, 373);
-            this.CallESchoolForm.Name = "CallESchoolForm";
-            this.CallESchoolForm.Size = new System.Drawing.Size(125, 23);
-            this.CallESchoolForm.TabIndex = 3;
-            this.CallESchoolForm.Text = "Edit school";
-            this.CallESchoolForm.UseVisualStyleBackColor = true;
-            this.CallESchoolForm.Click += new System.EventHandler(this.CallEditForm_Click);
-            // 
-            // CallESubjectForm
-            // 
-            this.CallESubjectForm.Location = new System.Drawing.Point(134, 373);
-            this.CallESubjectForm.Name = "CallESubjectForm";
-            this.CallESubjectForm.Size = new System.Drawing.Size(125, 23);
-            this.CallESubjectForm.TabIndex = 3;
-            this.CallESubjectForm.Text = "Edit subject";
-            this.CallESubjectForm.UseVisualStyleBackColor = true;
-            this.CallESubjectForm.Click += new System.EventHandler(this.CallEditForm_Click);
-            // 
-            // CallEStudentForm
-            // 
-            this.CallEStudentForm.Location = new System.Drawing.Point(135, 373);
-            this.CallEStudentForm.Name = "CallEStudentForm";
-            this.CallEStudentForm.Size = new System.Drawing.Size(125, 23);
-            this.CallEStudentForm.TabIndex = 3;
-            this.CallEStudentForm.Text = "Edit student";
-            this.CallEStudentForm.UseVisualStyleBackColor = true;
+            this.CallECourseForm.Location = new System.Drawing.Point(135, 373);
+            this.CallECourseForm.Name = "CallECourseForm";
+            this.CallECourseForm.Size = new System.Drawing.Size(125, 23);
+            this.CallECourseForm.TabIndex = 3;
+            this.CallECourseForm.Text = "Edit course";
+            this.CallECourseForm.UseVisualStyleBackColor = true;
+            this.CallECourseForm.Click += new System.EventHandler(this.CallEditForm_Click);
             // 
             // MainForm
             // 
@@ -650,6 +663,7 @@
         private System.Windows.Forms.Button CallESchoolForm;
         private System.Windows.Forms.Button CallESubjectForm;
         private System.Windows.Forms.Button CallEStudentForm;
+        private System.Windows.Forms.Button CallECourseForm;
     }
 }
 

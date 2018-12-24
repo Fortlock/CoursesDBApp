@@ -422,7 +422,7 @@ namespace Courses.DataModel
             return null;
         }
 
-        public static Student EditStudent(int id, string name, int group)
+        public static Student EditStudent(int id, string name, int group, int schoolId)
         {
             CoursesEntities db = new CoursesEntities();
             Student student = db.Students.Find(id);
@@ -430,6 +430,7 @@ namespace Courses.DataModel
             {
                 student.Name = name;
                 student.GroupN = group;
+                student.SchoolId = schoolId;
                 try
                 {
                     db.SaveChanges();
@@ -445,7 +446,7 @@ namespace Courses.DataModel
             return null;
         }
 
-        public static Course EditCourse(int id, int cost, int duration, int subjectId)
+        public static Course EditCourse(int id, decimal cost, int duration, int subjectId)
         {
             CoursesEntities db = new CoursesEntities();
             Course course = db.Courses.Find(id);

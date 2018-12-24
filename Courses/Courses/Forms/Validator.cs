@@ -51,14 +51,14 @@ namespace Courses
 
         public static bool Cost(string cost)
         {
-            if (cost.Contains("."))
+            if (cost.Contains(","))
             {
-                if (cost.Length <= 9 && cost.Length>=4 && cost[0]!='0' && cost[0]!='.')
+                if (cost.Length <= 9 && cost.Length>=4 && cost[0]!='0' && cost[0]!=',')
                 {
                     int i = 0;
                     while (i < cost.Length)
                     {
-                        if (cost[i] < '0' || cost[i] > '9' || (i != cost.Length - 3 && cost[i] == '.'))
+                        if (((cost[i] < '0' || cost[i] > '9') && i!= cost.Length - 3) || (i != cost.Length - 3 && cost[i] == ','))
                             return false;
                         i++;
                     }

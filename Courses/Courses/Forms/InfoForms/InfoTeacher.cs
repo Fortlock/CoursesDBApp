@@ -38,6 +38,7 @@ namespace Courses
 
         private void RefreshTab()
         {
+            CoursesGridView.Columns[7].DefaultCellStyle.Format = "C";
             CoursesGridView.DataSource = CoursesRequests.GetCourseTeachersViews(TeacherId);
             if (CoursesGridView.RowCount == 0) CallDBTeacherForm.Enabled = false; else CallDBTeacherForm.Enabled = true;
         }
