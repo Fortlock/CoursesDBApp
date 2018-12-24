@@ -91,11 +91,21 @@
           <Key>
             <PropertyRef Name="Id" />
             <PropertyRef Name="TeacherId" />
+            <PropertyRef Name="CourseId" />
+            <PropertyRef Name="SubjectId" />
             <PropertyRef Name="Name" />
+            <PropertyRef Name="Duration" />
+            <PropertyRef Name="Cost" />
+            <PropertyRef Name="SubjectName" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="TeacherId" Type="int" Nullable="false" />
+          <Property Name="CourseId" Type="int" Nullable="false" />
+          <Property Name="SubjectId" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Duration" Type="int" Nullable="false" />
+          <Property Name="Cost" Type="money" Nullable="false" />
+          <Property Name="SubjectName" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "Courses.dbo.CoursesView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
@@ -270,7 +280,12 @@
             <DefiningQuery>SELECT 
     [CoursesTeachersView].[Id] AS [Id], 
     [CoursesTeachersView].[TeacherId] AS [TeacherId], 
-    [CoursesTeachersView].[Name] AS [Name]
+    [CoursesTeachersView].[CourseId] AS [CourseId], 
+    [CoursesTeachersView].[SubjectId] AS [SubjectId], 
+    [CoursesTeachersView].[Name] AS [Name], 
+    [CoursesTeachersView].[Duration] AS [Duration], 
+    [CoursesTeachersView].[Cost] AS [Cost], 
+    [CoursesTeachersView].[SubjectName] AS [SubjectName]
     FROM [dbo].[CoursesTeachersView] AS [CoursesTeachersView]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="CoursesView" EntityType="Self.CoursesView" store:Type="Views" store:Schema="dbo">
@@ -618,10 +633,20 @@
             <PropertyRef Name="Id" />
             <PropertyRef Name="TeacherId" />
             <PropertyRef Name="Name" />
+            <PropertyRef Name="CourseId" />
+            <PropertyRef Name="SubjectId" />
+            <PropertyRef Name="Duration" />
+            <PropertyRef Name="Cost" />
+            <PropertyRef Name="SubjectName" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="TeacherId" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CourseId" Type="Int32" Nullable="false" />
+          <Property Name="SubjectId" Type="Int32" Nullable="false" />
+          <Property Name="Duration" Type="Int32" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="SubjectName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -760,6 +785,11 @@
           <EntitySetMapping Name="CoursesTeachersViews">
             <EntityTypeMapping TypeName="CoursesModel.CoursesTeachersView">
               <MappingFragment StoreEntitySet="CoursesTeachersView">
+                <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

@@ -39,8 +39,11 @@ namespace Courses
                 res = true;
                 int i = 0;
                 while (res && i < duration.Length)
+                {
                     if (duration[i] < '0' || duration[i] > '9')
                         res = false;
+                    i++;
+                }
 
             }
             return res;
@@ -53,9 +56,12 @@ namespace Courses
                 if (cost.Length <= 9 && cost.Length>=4 && cost[0]!='0' && cost[0]!='.')
                 {
                     int i = 0;
-                    while (i<cost.Length)
+                    while (i < cost.Length)
+                    {
                         if (cost[i] < '0' || cost[i] > '9' || (i != cost.Length - 3 && cost[i] == '.'))
                             return false;
+                        i++;
+                    }
                     return true;
                 }
                 return false;

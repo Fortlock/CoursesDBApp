@@ -172,8 +172,23 @@ namespace Courses
 
         private void GridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            InfoCourseForm infoCourseForm = new InfoCourseForm(this, (int)CoursesGridView.SelectedRows[0].Cells[0].Value);
-            infoCourseForm.Show();
+            string name = ((DataGridView)sender).Name;
+            
+            switch (name)
+            {
+                case "TeachersGridView":
+                    {
+                        InfoTeacher infoTeacher = new InfoTeacher(this, (int)TeachersGridView.SelectedRows[0].Cells[0].Value);
+                        infoTeacher.Show();
+                        break;
+                    }
+                case "CoursesGridView":
+                    {
+                        InfoCourseForm infoCourseForm = new InfoCourseForm(this, (int)CoursesGridView.SelectedRows[0].Cells[0].Value);
+                        infoCourseForm.Show();
+                        break;
+                    }
+            }
             Enabled = false;
         }
     }

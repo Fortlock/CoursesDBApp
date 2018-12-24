@@ -17,5 +17,10 @@ namespace Courses.DataModel
         public int Id { get; set; }
         public int TeacherId { get; set; }
         public string Name { get; set; }
+        public int CourseId { get; set; }
+        public int SubjectId { get; set; }
+        public int Duration { get; set; }
+        public decimal Cost { get; set; }
+        public string SubjectName { get; set; }
     }
 }

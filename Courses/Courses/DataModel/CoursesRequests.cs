@@ -619,6 +619,16 @@ namespace Courses.DataModel
             return res;
         }
 
+        public static List<CoursesTeachersView> GetCourseTeachersViews(int teacherId)
+        {
+            List<CoursesTeachersView> res;
+            CoursesEntities db = new CoursesEntities();
+            res = new List<CoursesTeachersView>();
+            db.CoursesTeachersViews.Where(p=>p.TeacherId == teacherId).ToList().ForEach(p=>res.Add(p));
+            db.Dispose();
+            return res;
+        }
+
         //get entity from db
 
         public static Course GetCourse(int id)
@@ -633,6 +643,13 @@ namespace Courses.DataModel
             return res;
         }
 
-        
+        public static Teacher GetTeacher(int id)
+        {
+            CoursesEntities db = new CoursesEntities();
+            Teacher res = db.Teachers.ToList().Find(p => p.Id == id);
+            res.CoursesTeachers = res.CoursesTeachers.ToList();
+            db.Dispose();
+            return res;
+        }
     }
 }

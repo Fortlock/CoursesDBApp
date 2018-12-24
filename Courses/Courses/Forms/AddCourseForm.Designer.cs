@@ -128,7 +128,7 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(355, 165);
             this.Name = "AddCourseForm";
-            this.Text = "New student";
+            this.Text = "New course";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddCourseForm_FormClosed);
             this.Load += new System.EventHandler(this.AddCourseForm_Load);
             this.ResumeLayout(false);
