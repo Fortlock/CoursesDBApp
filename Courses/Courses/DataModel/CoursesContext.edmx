@@ -46,7 +46,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="GroupN" Type="int" Nullable="false" />
-          <Property Name="SchoolId" Type="int" Nullable="false" />
+          <Property Name="SchoolId" Type="int" />
         </EntityType>
         <EntityType Name="Subjects">
           <Key>
@@ -208,7 +208,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Students_Schools">
-          <End Role="Schools" Type="Self.Schools" Multiplicity="1" />
+          <End Role="Schools" Type="Self.Schools" Multiplicity="0..1" />
           <End Role="Students" Type="Self.Students" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Schools">
@@ -397,7 +397,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="GroupN" Type="Int32" Nullable="false" />
-          <Property Name="SchoolId" Type="Int32" Nullable="false" />
+          <Property Name="SchoolId" Type="Int32" />
           <NavigationProperty Name="CoursesStudents" Relationship="Self.FK_CoursesStudents_Students" FromRole="Students" ToRole="CoursesStudents" />
           <NavigationProperty Name="School" Relationship="Self.FK_Students_Schools" FromRole="Students" ToRole="Schools" />
         </EntityType>
@@ -507,7 +507,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Students_Schools">
-          <End Role="Schools" Type="Self.School" Multiplicity="1" />
+          <End Role="Schools" Type="Self.School" Multiplicity="0..1" />
           <End Role="Students" Type="Self.Student" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Schools">

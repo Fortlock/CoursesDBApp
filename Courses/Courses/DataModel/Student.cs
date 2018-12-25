@@ -23,7 +23,7 @@ namespace Courses.DataModel
         public int Id { get; set; }
         public string Name { get; set; }
         public int GroupN { get; set; }
-        public int SchoolId { get; set; }
+        public Nullable<int> SchoolId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CourseStudent> CoursesStudents { get; set; }
