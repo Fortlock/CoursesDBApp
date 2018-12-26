@@ -31,29 +31,33 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.TeachersPage = new System.Windows.Forms.TabPage();
+            this.CallETeacherForm = new System.Windows.Forms.Button();
             this.CallDTeacherForm = new System.Windows.Forms.Button();
             this.CallNTeacherForm = new System.Windows.Forms.Button();
             this.TeachersGridView = new System.Windows.Forms.DataGridView();
             this.SchoolsPage = new System.Windows.Forms.TabPage();
+            this.CallESchoolForm = new System.Windows.Forms.Button();
             this.CallDSchoolForm = new System.Windows.Forms.Button();
             this.CallNSchoolForm = new System.Windows.Forms.Button();
             this.SchoolsGridView = new System.Windows.Forms.DataGridView();
             this.SubjectsPage = new System.Windows.Forms.TabPage();
+            this.CallESubjectForm = new System.Windows.Forms.Button();
             this.CallDSubjectForm = new System.Windows.Forms.Button();
             this.CallNSubjectForm = new System.Windows.Forms.Button();
             this.SubjectsGridView = new System.Windows.Forms.DataGridView();
             this.StudentsPage = new System.Windows.Forms.TabPage();
+            this.CallEStudentForm = new System.Windows.Forms.Button();
             this.CallDStudentForm = new System.Windows.Forms.Button();
             this.CallNStudentForm = new System.Windows.Forms.Button();
             this.StudentsGridView = new System.Windows.Forms.DataGridView();
             this.CoursesPage = new System.Windows.Forms.TabPage();
+            this.CallECourseForm = new System.Windows.Forms.Button();
             this.CallDCourseForm = new System.Windows.Forms.Button();
             this.CallNCourseForm = new System.Windows.Forms.Button();
             this.CoursesGridView = new System.Windows.Forms.DataGridView();
-            this.CallETeacherForm = new System.Windows.Forms.Button();
-            this.CallESchoolForm = new System.Windows.Forms.Button();
-            this.CallESubjectForm = new System.Windows.Forms.Button();
-            this.CallEStudentForm = new System.Windows.Forms.Button();
+            this.findTeacherBox = new System.Windows.Forms.TextBox();
+            this.findSchoolBox = new System.Windows.Forms.TextBox();
+            this.findSubjectBox = new System.Windows.Forms.TextBox();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coursesTeachersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,7 +80,7 @@
             this.durationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.CallECourseForm = new System.Windows.Forms.Button();
+            this.findStudentBox = new System.Windows.Forms.TextBox();
             this.tabControl.SuspendLayout();
             this.TeachersPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TeachersGridView)).BeginInit();
@@ -111,6 +115,7 @@
             // 
             // TeachersPage
             // 
+            this.TeachersPage.Controls.Add(this.findTeacherBox);
             this.TeachersPage.Controls.Add(this.CallETeacherForm);
             this.TeachersPage.Controls.Add(this.CallDTeacherForm);
             this.TeachersPage.Controls.Add(this.CallNTeacherForm);
@@ -122,6 +127,16 @@
             this.TeachersPage.TabIndex = 0;
             this.TeachersPage.Text = "Teachers";
             this.TeachersPage.UseVisualStyleBackColor = true;
+            // 
+            // CallETeacherForm
+            // 
+            this.CallETeacherForm.Location = new System.Drawing.Point(134, 373);
+            this.CallETeacherForm.Name = "CallETeacherForm";
+            this.CallETeacherForm.Size = new System.Drawing.Size(125, 23);
+            this.CallETeacherForm.TabIndex = 3;
+            this.CallETeacherForm.Text = "Edit teacher";
+            this.CallETeacherForm.UseVisualStyleBackColor = true;
+            this.CallETeacherForm.Click += new System.EventHandler(this.CallEditForm_Click);
             // 
             // CallDTeacherForm
             // 
@@ -154,17 +169,18 @@
             this.nameDataGridViewTextBoxColumn,
             this.coursesTeachersDataGridViewTextBoxColumn});
             this.TeachersGridView.DataSource = this.teacherBindingSource;
-            this.TeachersGridView.Location = new System.Drawing.Point(0, 0);
+            this.TeachersGridView.Location = new System.Drawing.Point(0, 33);
             this.TeachersGridView.MultiSelect = false;
             this.TeachersGridView.Name = "TeachersGridView";
             this.TeachersGridView.ReadOnly = true;
             this.TeachersGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.TeachersGridView.Size = new System.Drawing.Size(767, 367);
+            this.TeachersGridView.Size = new System.Drawing.Size(767, 334);
             this.TeachersGridView.TabIndex = 0;
             this.TeachersGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridView_CellDoubleClick);
             // 
             // SchoolsPage
             // 
+            this.SchoolsPage.Controls.Add(this.findSchoolBox);
             this.SchoolsPage.Controls.Add(this.CallESchoolForm);
             this.SchoolsPage.Controls.Add(this.CallDSchoolForm);
             this.SchoolsPage.Controls.Add(this.CallNSchoolForm);
@@ -176,6 +192,16 @@
             this.SchoolsPage.TabIndex = 1;
             this.SchoolsPage.Text = "Schools";
             this.SchoolsPage.UseVisualStyleBackColor = true;
+            // 
+            // CallESchoolForm
+            // 
+            this.CallESchoolForm.Location = new System.Drawing.Point(134, 373);
+            this.CallESchoolForm.Name = "CallESchoolForm";
+            this.CallESchoolForm.Size = new System.Drawing.Size(125, 23);
+            this.CallESchoolForm.TabIndex = 3;
+            this.CallESchoolForm.Text = "Edit school";
+            this.CallESchoolForm.UseVisualStyleBackColor = true;
+            this.CallESchoolForm.Click += new System.EventHandler(this.CallEditForm_Click);
             // 
             // CallDSchoolForm
             // 
@@ -208,17 +234,18 @@
             this.nameDataGridViewTextBoxColumn1,
             this.studentsDataGridViewTextBoxColumn});
             this.SchoolsGridView.DataSource = this.schoolBindingSource;
-            this.SchoolsGridView.Location = new System.Drawing.Point(0, 0);
+            this.SchoolsGridView.Location = new System.Drawing.Point(0, 33);
             this.SchoolsGridView.MultiSelect = false;
             this.SchoolsGridView.Name = "SchoolsGridView";
             this.SchoolsGridView.ReadOnly = true;
             this.SchoolsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.SchoolsGridView.Size = new System.Drawing.Size(767, 367);
+            this.SchoolsGridView.Size = new System.Drawing.Size(767, 334);
             this.SchoolsGridView.TabIndex = 0;
             this.SchoolsGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridView_CellDoubleClick);
             // 
             // SubjectsPage
             // 
+            this.SubjectsPage.Controls.Add(this.findSubjectBox);
             this.SubjectsPage.Controls.Add(this.CallESubjectForm);
             this.SubjectsPage.Controls.Add(this.CallDSubjectForm);
             this.SubjectsPage.Controls.Add(this.CallNSubjectForm);
@@ -229,6 +256,16 @@
             this.SubjectsPage.TabIndex = 2;
             this.SubjectsPage.Text = "Subjects";
             this.SubjectsPage.UseVisualStyleBackColor = true;
+            // 
+            // CallESubjectForm
+            // 
+            this.CallESubjectForm.Location = new System.Drawing.Point(134, 373);
+            this.CallESubjectForm.Name = "CallESubjectForm";
+            this.CallESubjectForm.Size = new System.Drawing.Size(125, 23);
+            this.CallESubjectForm.TabIndex = 3;
+            this.CallESubjectForm.Text = "Edit subject";
+            this.CallESubjectForm.UseVisualStyleBackColor = true;
+            this.CallESubjectForm.Click += new System.EventHandler(this.CallEditForm_Click);
             // 
             // CallDSubjectForm
             // 
@@ -261,17 +298,18 @@
             this.nameDataGridViewTextBoxColumn2,
             this.coursesDataGridViewTextBoxColumn});
             this.SubjectsGridView.DataSource = this.subjectBindingSource;
-            this.SubjectsGridView.Location = new System.Drawing.Point(0, 0);
+            this.SubjectsGridView.Location = new System.Drawing.Point(0, 33);
             this.SubjectsGridView.MultiSelect = false;
             this.SubjectsGridView.Name = "SubjectsGridView";
             this.SubjectsGridView.ReadOnly = true;
             this.SubjectsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.SubjectsGridView.Size = new System.Drawing.Size(767, 367);
+            this.SubjectsGridView.Size = new System.Drawing.Size(767, 334);
             this.SubjectsGridView.TabIndex = 0;
             this.SubjectsGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridView_CellDoubleClick);
             // 
             // StudentsPage
             // 
+            this.StudentsPage.Controls.Add(this.findStudentBox);
             this.StudentsPage.Controls.Add(this.CallEStudentForm);
             this.StudentsPage.Controls.Add(this.CallDStudentForm);
             this.StudentsPage.Controls.Add(this.CallNStudentForm);
@@ -282,6 +320,16 @@
             this.StudentsPage.TabIndex = 3;
             this.StudentsPage.Text = "Students";
             this.StudentsPage.UseVisualStyleBackColor = true;
+            // 
+            // CallEStudentForm
+            // 
+            this.CallEStudentForm.Location = new System.Drawing.Point(135, 373);
+            this.CallEStudentForm.Name = "CallEStudentForm";
+            this.CallEStudentForm.Size = new System.Drawing.Size(125, 23);
+            this.CallEStudentForm.TabIndex = 3;
+            this.CallEStudentForm.Text = "Edit student";
+            this.CallEStudentForm.UseVisualStyleBackColor = true;
+            this.CallEStudentForm.Click += new System.EventHandler(this.CallEditForm_Click);
             // 
             // CallDStudentForm
             // 
@@ -315,12 +363,12 @@
             this.groupNDataGridViewTextBoxColumn,
             this.schoolDataGridViewTextBoxColumn});
             this.StudentsGridView.DataSource = this.studentViewBindingSource;
-            this.StudentsGridView.Location = new System.Drawing.Point(0, 0);
+            this.StudentsGridView.Location = new System.Drawing.Point(0, 33);
             this.StudentsGridView.MultiSelect = false;
             this.StudentsGridView.Name = "StudentsGridView";
             this.StudentsGridView.ReadOnly = true;
             this.StudentsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.StudentsGridView.Size = new System.Drawing.Size(767, 367);
+            this.StudentsGridView.Size = new System.Drawing.Size(767, 334);
             this.StudentsGridView.TabIndex = 0;
             this.StudentsGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridView_CellDoubleClick);
             // 
@@ -336,6 +384,16 @@
             this.CoursesPage.TabIndex = 4;
             this.CoursesPage.Text = "Courses";
             this.CoursesPage.UseVisualStyleBackColor = true;
+            // 
+            // CallECourseForm
+            // 
+            this.CallECourseForm.Location = new System.Drawing.Point(135, 373);
+            this.CallECourseForm.Name = "CallECourseForm";
+            this.CallECourseForm.Size = new System.Drawing.Size(125, 23);
+            this.CallECourseForm.TabIndex = 3;
+            this.CallECourseForm.Text = "Edit course";
+            this.CallECourseForm.UseVisualStyleBackColor = true;
+            this.CallECourseForm.Click += new System.EventHandler(this.CallEditForm_Click);
             // 
             // CallDCourseForm
             // 
@@ -378,45 +436,29 @@
             this.CoursesGridView.TabIndex = 0;
             this.CoursesGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridView_CellDoubleClick);
             // 
-            // CallETeacherForm
+            // findTeacherBox
             // 
-            this.CallETeacherForm.Location = new System.Drawing.Point(134, 373);
-            this.CallETeacherForm.Name = "CallETeacherForm";
-            this.CallETeacherForm.Size = new System.Drawing.Size(125, 23);
-            this.CallETeacherForm.TabIndex = 3;
-            this.CallETeacherForm.Text = "Edit teacher";
-            this.CallETeacherForm.UseVisualStyleBackColor = true;
-            this.CallETeacherForm.Click += new System.EventHandler(this.CallEditForm_Click);
+            this.findTeacherBox.Location = new System.Drawing.Point(7, 7);
+            this.findTeacherBox.Name = "findTeacherBox";
+            this.findTeacherBox.Size = new System.Drawing.Size(252, 20);
+            this.findTeacherBox.TabIndex = 4;
+            this.findTeacherBox.TextChanged += new System.EventHandler(this.findBox_TextChanged);
             // 
-            // CallESchoolForm
+            // findSchoolBox
             // 
-            this.CallESchoolForm.Location = new System.Drawing.Point(134, 373);
-            this.CallESchoolForm.Name = "CallESchoolForm";
-            this.CallESchoolForm.Size = new System.Drawing.Size(125, 23);
-            this.CallESchoolForm.TabIndex = 3;
-            this.CallESchoolForm.Text = "Edit school";
-            this.CallESchoolForm.UseVisualStyleBackColor = true;
-            this.CallESchoolForm.Click += new System.EventHandler(this.CallEditForm_Click);
+            this.findSchoolBox.Location = new System.Drawing.Point(7, 7);
+            this.findSchoolBox.Name = "findSchoolBox";
+            this.findSchoolBox.Size = new System.Drawing.Size(252, 20);
+            this.findSchoolBox.TabIndex = 4;
+            this.findSchoolBox.TextChanged += new System.EventHandler(this.findBox_TextChanged);
             // 
-            // CallESubjectForm
+            // findSubjectBox
             // 
-            this.CallESubjectForm.Location = new System.Drawing.Point(134, 373);
-            this.CallESubjectForm.Name = "CallESubjectForm";
-            this.CallESubjectForm.Size = new System.Drawing.Size(125, 23);
-            this.CallESubjectForm.TabIndex = 3;
-            this.CallESubjectForm.Text = "Edit subject";
-            this.CallESubjectForm.UseVisualStyleBackColor = true;
-            this.CallESubjectForm.Click += new System.EventHandler(this.CallEditForm_Click);
-            // 
-            // CallEStudentForm
-            // 
-            this.CallEStudentForm.Location = new System.Drawing.Point(135, 373);
-            this.CallEStudentForm.Name = "CallEStudentForm";
-            this.CallEStudentForm.Size = new System.Drawing.Size(125, 23);
-            this.CallEStudentForm.TabIndex = 3;
-            this.CallEStudentForm.Text = "Edit student";
-            this.CallEStudentForm.UseVisualStyleBackColor = true;
-            this.CallEStudentForm.Click += new System.EventHandler(this.CallEditForm_Click);
+            this.findSubjectBox.Location = new System.Drawing.Point(7, 7);
+            this.findSubjectBox.Name = "findSubjectBox";
+            this.findSubjectBox.Size = new System.Drawing.Size(252, 20);
+            this.findSubjectBox.TabIndex = 4;
+            this.findSubjectBox.TextChanged += new System.EventHandler(this.findBox_TextChanged);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -574,15 +616,13 @@
             // 
             this.courseViewBindingSource.DataSource = typeof(Courses.DataModel.CourseView);
             // 
-            // CallECourseForm
+            // findStudentBox
             // 
-            this.CallECourseForm.Location = new System.Drawing.Point(135, 373);
-            this.CallECourseForm.Name = "CallECourseForm";
-            this.CallECourseForm.Size = new System.Drawing.Size(125, 23);
-            this.CallECourseForm.TabIndex = 3;
-            this.CallECourseForm.Text = "Edit course";
-            this.CallECourseForm.UseVisualStyleBackColor = true;
-            this.CallECourseForm.Click += new System.EventHandler(this.CallEditForm_Click);
+            this.findStudentBox.Location = new System.Drawing.Point(7, 7);
+            this.findStudentBox.Name = "findStudentBox";
+            this.findStudentBox.Size = new System.Drawing.Size(253, 20);
+            this.findStudentBox.TabIndex = 4;
+            this.findStudentBox.TextChanged += new System.EventHandler(this.findBox_TextChanged);
             // 
             // MainForm
             // 
@@ -596,12 +636,16 @@
             this.EnabledChanged += new System.EventHandler(this.MainForm_EnabledChanged);
             this.tabControl.ResumeLayout(false);
             this.TeachersPage.ResumeLayout(false);
+            this.TeachersPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TeachersGridView)).EndInit();
             this.SchoolsPage.ResumeLayout(false);
+            this.SchoolsPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SchoolsGridView)).EndInit();
             this.SubjectsPage.ResumeLayout(false);
+            this.SubjectsPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SubjectsGridView)).EndInit();
             this.StudentsPage.ResumeLayout(false);
+            this.StudentsPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StudentsGridView)).EndInit();
             this.CoursesPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CoursesGridView)).EndInit();
@@ -664,6 +708,10 @@
         private System.Windows.Forms.Button CallESubjectForm;
         private System.Windows.Forms.Button CallEStudentForm;
         private System.Windows.Forms.Button CallECourseForm;
+        private System.Windows.Forms.TextBox findTeacherBox;
+        private System.Windows.Forms.TextBox findSchoolBox;
+        private System.Windows.Forms.TextBox findSubjectBox;
+        private System.Windows.Forms.TextBox findStudentBox;
     }
 }
 

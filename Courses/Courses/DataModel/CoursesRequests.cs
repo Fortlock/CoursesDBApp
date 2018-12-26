@@ -720,7 +720,7 @@ namespace Courses.DataModel
         {
             CoursesEntities db = new CoursesEntities();
             Student res = db.Students.ToList().Find(p => p.Id == id);
-            if (res != null)
+            if (res != null && res.School !=null)
                 res.School.ToString();
             db.Dispose();
             return res;

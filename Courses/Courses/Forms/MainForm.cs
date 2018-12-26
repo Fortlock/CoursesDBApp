@@ -22,6 +22,31 @@ namespace Courses
         private void MainForm_Load(object sender, EventArgs e)
         {
             RefreshTab("TeachersPage");
+            DisableButtons();
+        }
+
+        private void DisableButtons()
+        {
+            System.Security.Principal.IdentityReferenceCollection t = System.Security.Principal.WindowsIdentity.GetCurrent().Groups;
+            if (System.Security.Principal.WindowsIdentity.GetCurrent().Groups.Where(p => p.Value == "S-1-5-21-394331043-2906864525-1991675871-1006").Count() != 0)
+                return;
+            CallDTeacherForm.Enabled = CallETeacherForm.Enabled = CallNTeacherForm.Enabled = false;
+            CallDSchoolForm.Enabled = false;
+            CallDSubjectForm.Enabled = false;
+            CallEStudentForm.Enabled = CallDStudentForm.Enabled = false;
+            CallNCourseForm.Enabled = CallECourseForm.Enabled = CallDCourseForm.Enabled = false;
+
+
+
+            if (System.Security.Principal.WindowsIdentity.GetCurrent().Groups.Where(p => p.Value == "S-1-5-21-394331043-2906864525-1991675871-1005").Count() != 0)
+                return;
+            CallESchoolForm.Enabled = CallNSchoolForm.Enabled = false;
+            CallESubjectForm.Enabled = CallNSubjectForm.Enabled = false;
+            CallNStudentForm.Enabled = false;
+            if (System.Security.Principal.WindowsIdentity.GetCurrent().Groups.Where(p => p.Value == "S-1-5-21-394331043-2906864525-1991675871-1007").Count() != 0)
+                return;
+            Close();
+
         }
 
         private void RefreshTab(string name)
@@ -30,22 +55,22 @@ namespace Courses
             {
                 case "TeachersPage":
                     {
-                        TeachersGridView.DataSource = CoursesRequests.GetTeachers();
+                        TeachersGridView.DataSource = CoursesRequests.GetTeachers().Where(p => p.Name.Contains(findTeacherBox.Text)).ToList();
                         if (TeachersGridView.RowCount == 0) CallDTeacherForm.Enabled = CallETeacherForm.Enabled = false; else CallDTeacherForm.Enabled = CallETeacherForm.Enabled = true; break;
                     }
                 case "SchoolsPage":
                     {
-                        SchoolsGridView.DataSource = CoursesRequests.GetSchools();
+                        SchoolsGridView.DataSource = CoursesRequests.GetSchools().Where(p => p.Name.Contains(findSchoolBox.Text)).ToList();
                         if (SchoolsGridView.RowCount == 0) CallDSchoolForm.Enabled = CallESchoolForm.Enabled = false; else CallDSchoolForm.Enabled = CallESchoolForm.Enabled = true; break;
                     }
                 case "SubjectsPage":
                     {
-                        SubjectsGridView.DataSource = CoursesRequests.GetSubjects();
+                        SubjectsGridView.DataSource = CoursesRequests.GetSubjects().Where(p => p.Name.Contains(findSubjectBox.Text)).ToList();
                         if (SubjectsGridView.RowCount == 0) CallDSubjectForm.Enabled = CallESubjectForm.Enabled = false; else CallDSubjectForm.Enabled = CallESubjectForm.Enabled = true; break;
                     }
                 case "StudentsPage":
                     {
-                        StudentsGridView.DataSource = CoursesRequests.GetStudentViews();
+                        StudentsGridView.DataSource = CoursesRequests.GetStudentViews().Where(p => p.Name.Contains(findStudentBox.Text)).ToList();
                         if (StudentsGridView.RowCount == 0) CallDStudentForm.Enabled = CallEStudentForm.Enabled = false; else CallDStudentForm.Enabled = CallEStudentForm.Enabled = true; break;
                     }
                 case "CoursesPage":
@@ -247,6 +272,19 @@ namespace Courses
                         editCourseForm.Show();
                         break;
                     }
+            }
+        }
+
+        private void findBox_TextChanged(object sender, EventArgs e)
+        {
+            string name = ((TextBox)sender).Name;
+
+            switch (name)
+            {
+                case "findTeacherBox": RefreshTab("TeachersPage"); break;
+                case "findSchoolBox": RefreshTab("SchoolsPage"); break;
+                case "findSubjectBox": RefreshTab("SubjectsPage"); break;
+                case "findStudentBox": RefreshTab("StudentsPage"); break;
             }
         }
     }
