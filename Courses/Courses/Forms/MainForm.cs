@@ -33,20 +33,20 @@ namespace Courses
                 WhoLabel.Text += "админ.";
                 return;
             }
-            CallDTeacherForm.Enabled = CallETeacherForm.Enabled = CallNTeacherForm.Enabled = false;
-            CallDSchoolForm.Enabled = false;
-            CallDSubjectForm.Enabled = false;
-            CallEStudentForm.Enabled = CallDStudentForm.Enabled = false;
-            CallNCourseForm.Enabled = CallECourseForm.Enabled = CallDCourseForm.Enabled = false;
+            CallDTeacherForm.Visible = CallETeacherForm.Visible = CallNTeacherForm.Visible = false;
+            CallDSchoolForm.Visible = false;
+            CallDSubjectForm.Visible = false;
+            CallEStudentForm.Visible = CallDStudentForm.Visible = false;
+            CallNCourseForm.Visible = CallECourseForm.Visible = CallDCourseForm.Visible = false;
             if (System.Security.Principal.WindowsIdentity.GetCurrent().Groups.Where(p => p.Value == "S-1-5-21-394331043-2906864525-1991675871-1005").Count() != 0)
             {
                 WhoLabel.Text += "учитель.";
                 return;
             }
                 
-            CallESchoolForm.Enabled = CallNSchoolForm.Enabled = false;
-            CallESubjectForm.Enabled = CallNSubjectForm.Enabled = false;
-            CallNStudentForm.Enabled = false;
+            CallESchoolForm.Visible = CallNSchoolForm.Visible = false;
+            CallESubjectForm.Visible = CallNSubjectForm.Visible = false;
+            CallNStudentForm.Visible = false;
             if (System.Security.Principal.WindowsIdentity.GetCurrent().Groups.Where(p => p.Value == "S-1-5-21-394331043-2906864525-1991675871-1007").Count() != 0)
             {
                 WhoLabel.Text += "ученик.";
