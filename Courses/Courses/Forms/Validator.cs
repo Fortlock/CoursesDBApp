@@ -8,6 +8,15 @@ namespace Courses
 {
     static class Validator
     {
+        public static bool Name(string name)
+        {
+            if (name.Length < 3) return false;
+            for (int i = 1; i < name.Length; i++)
+                if (name[i] == ' ' && name[i - 1] == ' ')
+                    return false;
+            return true;
+        }
+
         public static bool Group(string group)
         {
             if (group.Length == 1 && group[0] > '0' && group[0] <= '9')

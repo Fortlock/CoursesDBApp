@@ -32,10 +32,15 @@ namespace Courses
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            if (CoursesRequests.AddSubject(nameBox.Text) == null)
-                MessageBox.Show("Предмет не добавлен", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (Validator.Name(nameBox.Text))
+            {
+                if (CoursesRequests.AddSubject(nameBox.Text) == null)
+                    MessageBox.Show("Предмет не добавлен", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    Close();
+            }
             else
-                Close();
+                MessageBox.Show("Неверный формат данных", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

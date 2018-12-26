@@ -32,10 +32,14 @@ namespace Courses
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            if (CoursesRequests.AddTeacher(nameBox.Text)==null)
-                MessageBox.Show("Учитель не добавлен", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else
-                Close();
+            if (Validator.Name(nameBox.Text))
+            {
+                if (CoursesRequests.AddTeacher(nameBox.Text) == null)
+                    MessageBox.Show("Учитель не добавлен", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    Close();
+            }
+            else MessageBox.Show("Неверный формат данных", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

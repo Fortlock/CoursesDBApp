@@ -34,7 +34,7 @@ namespace Courses
         {
             string name = nameBox.Text;
             int group = 0;
-            if (!Validator.Group(groupBox.Text) || !int.TryParse(groupBox.Text, out group))
+            if (!Validator.Name(nameBox.Text) || !Validator.Group(groupBox.Text) || !int.TryParse(groupBox.Text, out group))
             {
                 MessageBox.Show("Неверный формат данных", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
