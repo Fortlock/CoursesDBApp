@@ -69,6 +69,7 @@ namespace Courses
                 schoolBox.DisplayMember = "Name";
                 schoolBox.ValueMember = "Id";
                 schoolBox.DataSource = CoursesRequests.GetSchools();
+                if (t.SchoolId!=null)
                 schoolBox.SelectedValue = t.SchoolId;
             }
             
