@@ -31,21 +31,25 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.TeachersPage = new System.Windows.Forms.TabPage();
+            this.findTeacherBox = new System.Windows.Forms.TextBox();
             this.CallETeacherForm = new System.Windows.Forms.Button();
             this.CallDTeacherForm = new System.Windows.Forms.Button();
             this.CallNTeacherForm = new System.Windows.Forms.Button();
             this.TeachersGridView = new System.Windows.Forms.DataGridView();
             this.SchoolsPage = new System.Windows.Forms.TabPage();
+            this.findSchoolBox = new System.Windows.Forms.TextBox();
             this.CallESchoolForm = new System.Windows.Forms.Button();
             this.CallDSchoolForm = new System.Windows.Forms.Button();
             this.CallNSchoolForm = new System.Windows.Forms.Button();
             this.SchoolsGridView = new System.Windows.Forms.DataGridView();
             this.SubjectsPage = new System.Windows.Forms.TabPage();
+            this.findSubjectBox = new System.Windows.Forms.TextBox();
             this.CallESubjectForm = new System.Windows.Forms.Button();
             this.CallDSubjectForm = new System.Windows.Forms.Button();
             this.CallNSubjectForm = new System.Windows.Forms.Button();
             this.SubjectsGridView = new System.Windows.Forms.DataGridView();
             this.StudentsPage = new System.Windows.Forms.TabPage();
+            this.findStudentBox = new System.Windows.Forms.TextBox();
             this.CallEStudentForm = new System.Windows.Forms.Button();
             this.CallDStudentForm = new System.Windows.Forms.Button();
             this.CallNStudentForm = new System.Windows.Forms.Button();
@@ -55,9 +59,6 @@
             this.CallDCourseForm = new System.Windows.Forms.Button();
             this.CallNCourseForm = new System.Windows.Forms.Button();
             this.CoursesGridView = new System.Windows.Forms.DataGridView();
-            this.findTeacherBox = new System.Windows.Forms.TextBox();
-            this.findSchoolBox = new System.Windows.Forms.TextBox();
-            this.findSubjectBox = new System.Windows.Forms.TextBox();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coursesTeachersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,7 +81,7 @@
             this.durationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.findStudentBox = new System.Windows.Forms.TextBox();
+            this.WhoLabel = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.TeachersPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TeachersGridView)).BeginInit();
@@ -106,7 +107,7 @@
             this.tabControl.Controls.Add(this.SubjectsPage);
             this.tabControl.Controls.Add(this.StudentsPage);
             this.tabControl.Controls.Add(this.CoursesPage);
-            this.tabControl.Location = new System.Drawing.Point(13, 13);
+            this.tabControl.Location = new System.Drawing.Point(13, 20);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(775, 425);
@@ -127,6 +128,14 @@
             this.TeachersPage.TabIndex = 0;
             this.TeachersPage.Text = "Teachers";
             this.TeachersPage.UseVisualStyleBackColor = true;
+            // 
+            // findTeacherBox
+            // 
+            this.findTeacherBox.Location = new System.Drawing.Point(7, 7);
+            this.findTeacherBox.Name = "findTeacherBox";
+            this.findTeacherBox.Size = new System.Drawing.Size(252, 20);
+            this.findTeacherBox.TabIndex = 4;
+            this.findTeacherBox.TextChanged += new System.EventHandler(this.findBox_TextChanged);
             // 
             // CallETeacherForm
             // 
@@ -193,6 +202,14 @@
             this.SchoolsPage.Text = "Schools";
             this.SchoolsPage.UseVisualStyleBackColor = true;
             // 
+            // findSchoolBox
+            // 
+            this.findSchoolBox.Location = new System.Drawing.Point(7, 7);
+            this.findSchoolBox.Name = "findSchoolBox";
+            this.findSchoolBox.Size = new System.Drawing.Size(252, 20);
+            this.findSchoolBox.TabIndex = 4;
+            this.findSchoolBox.TextChanged += new System.EventHandler(this.findBox_TextChanged);
+            // 
             // CallESchoolForm
             // 
             this.CallESchoolForm.Location = new System.Drawing.Point(134, 373);
@@ -257,6 +274,14 @@
             this.SubjectsPage.Text = "Subjects";
             this.SubjectsPage.UseVisualStyleBackColor = true;
             // 
+            // findSubjectBox
+            // 
+            this.findSubjectBox.Location = new System.Drawing.Point(7, 7);
+            this.findSubjectBox.Name = "findSubjectBox";
+            this.findSubjectBox.Size = new System.Drawing.Size(252, 20);
+            this.findSubjectBox.TabIndex = 4;
+            this.findSubjectBox.TextChanged += new System.EventHandler(this.findBox_TextChanged);
+            // 
             // CallESubjectForm
             // 
             this.CallESubjectForm.Location = new System.Drawing.Point(134, 373);
@@ -320,6 +345,14 @@
             this.StudentsPage.TabIndex = 3;
             this.StudentsPage.Text = "Students";
             this.StudentsPage.UseVisualStyleBackColor = true;
+            // 
+            // findStudentBox
+            // 
+            this.findStudentBox.Location = new System.Drawing.Point(7, 7);
+            this.findStudentBox.Name = "findStudentBox";
+            this.findStudentBox.Size = new System.Drawing.Size(253, 20);
+            this.findStudentBox.TabIndex = 4;
+            this.findStudentBox.TextChanged += new System.EventHandler(this.findBox_TextChanged);
             // 
             // CallEStudentForm
             // 
@@ -435,30 +468,6 @@
             this.CoursesGridView.Size = new System.Drawing.Size(767, 367);
             this.CoursesGridView.TabIndex = 0;
             this.CoursesGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridView_CellDoubleClick);
-            // 
-            // findTeacherBox
-            // 
-            this.findTeacherBox.Location = new System.Drawing.Point(7, 7);
-            this.findTeacherBox.Name = "findTeacherBox";
-            this.findTeacherBox.Size = new System.Drawing.Size(252, 20);
-            this.findTeacherBox.TabIndex = 4;
-            this.findTeacherBox.TextChanged += new System.EventHandler(this.findBox_TextChanged);
-            // 
-            // findSchoolBox
-            // 
-            this.findSchoolBox.Location = new System.Drawing.Point(7, 7);
-            this.findSchoolBox.Name = "findSchoolBox";
-            this.findSchoolBox.Size = new System.Drawing.Size(252, 20);
-            this.findSchoolBox.TabIndex = 4;
-            this.findSchoolBox.TextChanged += new System.EventHandler(this.findBox_TextChanged);
-            // 
-            // findSubjectBox
-            // 
-            this.findSubjectBox.Location = new System.Drawing.Point(7, 7);
-            this.findSubjectBox.Name = "findSubjectBox";
-            this.findSubjectBox.Size = new System.Drawing.Size(252, 20);
-            this.findSubjectBox.TabIndex = 4;
-            this.findSubjectBox.TextChanged += new System.EventHandler(this.findBox_TextChanged);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -616,19 +625,21 @@
             // 
             this.courseViewBindingSource.DataSource = typeof(Courses.DataModel.CourseView);
             // 
-            // findStudentBox
+            // WhoLabel
             // 
-            this.findStudentBox.Location = new System.Drawing.Point(7, 7);
-            this.findStudentBox.Name = "findStudentBox";
-            this.findStudentBox.Size = new System.Drawing.Size(253, 20);
-            this.findStudentBox.TabIndex = 4;
-            this.findStudentBox.TextChanged += new System.EventHandler(this.findBox_TextChanged);
+            this.WhoLabel.AutoSize = true;
+            this.WhoLabel.Location = new System.Drawing.Point(618, 4);
+            this.WhoLabel.Name = "WhoLabel";
+            this.WhoLabel.Size = new System.Drawing.Size(81, 13);
+            this.WhoLabel.TabIndex = 1;
+            this.WhoLabel.Text = "Вы вошли как ";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 457);
+            this.Controls.Add(this.WhoLabel);
             this.Controls.Add(this.tabControl);
             this.Name = "MainForm";
             this.Text = "CoursesEditor";
@@ -655,6 +666,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.studentViewBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseViewBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -712,6 +724,7 @@
         private System.Windows.Forms.TextBox findSchoolBox;
         private System.Windows.Forms.TextBox findSubjectBox;
         private System.Windows.Forms.TextBox findStudentBox;
+        private System.Windows.Forms.Label WhoLabel;
     }
 }
 

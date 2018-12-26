@@ -29,22 +29,29 @@ namespace Courses
         {
             System.Security.Principal.IdentityReferenceCollection t = System.Security.Principal.WindowsIdentity.GetCurrent().Groups;
             if (System.Security.Principal.WindowsIdentity.GetCurrent().Groups.Where(p => p.Value == "S-1-5-21-394331043-2906864525-1991675871-1006").Count() != 0)
+            {
+                WhoLabel.Text += "админ.";
                 return;
+            }
             CallDTeacherForm.Enabled = CallETeacherForm.Enabled = CallNTeacherForm.Enabled = false;
             CallDSchoolForm.Enabled = false;
             CallDSubjectForm.Enabled = false;
             CallEStudentForm.Enabled = CallDStudentForm.Enabled = false;
             CallNCourseForm.Enabled = CallECourseForm.Enabled = CallDCourseForm.Enabled = false;
-
-
-
             if (System.Security.Principal.WindowsIdentity.GetCurrent().Groups.Where(p => p.Value == "S-1-5-21-394331043-2906864525-1991675871-1005").Count() != 0)
+            {
+                WhoLabel.Text += "учитель.";
                 return;
+            }
+                
             CallESchoolForm.Enabled = CallNSchoolForm.Enabled = false;
             CallESubjectForm.Enabled = CallNSubjectForm.Enabled = false;
             CallNStudentForm.Enabled = false;
             if (System.Security.Principal.WindowsIdentity.GetCurrent().Groups.Where(p => p.Value == "S-1-5-21-394331043-2906864525-1991675871-1007").Count() != 0)
+            {
+                WhoLabel.Text += "ученик.";
                 return;
+            }
             Close();
 
         }
